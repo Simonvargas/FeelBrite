@@ -19,9 +19,8 @@ const validateLogin = [
     handleValidationErrors,
   ];
 
-router.post(
+  router.post(
     '/',
-    validateLogin,
     asyncHandler(async (req, res, next) => {
       const { credential, password } = req.body;
   
@@ -42,6 +41,7 @@ router.post(
       });
     }),
   );
+  
   
 router.delete(
     '/',
