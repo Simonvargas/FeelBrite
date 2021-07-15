@@ -1,11 +1,11 @@
 import { Route, Switch } from 'react-router-dom'
-import LoginFormPage from './components/LoginFormModal/index'
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignupForm';
 import Navigation from './components/Navigation';
-// import { LoginFormModal } from './components/LoginFormModal/index'
+import LoginForm from './components/LoginForm/LoginForm';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -15,13 +15,14 @@ function App() {
   }, [dispatch]);
 
  
-
   return isLoaded && (
     <>
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
     <Switch>
-    
+      <route path='/login'>
+        <LoginForm />
+      </route>
       <Route path="/signup">
         <SignupFormPage />
       </Route>
