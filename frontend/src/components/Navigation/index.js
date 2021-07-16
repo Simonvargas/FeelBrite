@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 // import LoginFormModal from '../LoginForm';
-import './Navigation.css';
+import styles from'./Navigation.module.css';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -16,18 +16,23 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to='/login'>Login</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <div className={styles.login}>
+        <Link to='/login'>
+        <button className={styles.signBtn}>Sign in</button>
+        </Link>
+        </div>
       </>
     );
   }
 
   return (
     <ul>
-      <li>
-        <NavLink exact to="/">Home </NavLink>
+      <div className={styles.homediv}>
+        <Link exact to="/">
+        <button class={styles.home}>Home</button>
+        </Link>
+        </div>
         {isLoaded && sessionLinks}
-      </li>
     </ul>
   );
 }

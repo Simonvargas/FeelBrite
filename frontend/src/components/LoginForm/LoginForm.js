@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom'
 
-import './LoginForm.css'
+import styles from'./LoginForm.module.css'
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -22,32 +23,49 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+      <div className={styles.container}>
+        {/* <div className='form-container'> */}
+          <form onSubmit={handleSubmit} className={styles.loginForm}>
+              <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+            <div className={styles.loginText}>
+            <h1 className={styles.loginH1}>Sign in</h1>
+            <label>
+              <input
+              className={styles.input}
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+                placeholder='Email'
+              />
+            </label>
+            <label>
+              <input
+              className={styles.input}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder='Password'
+              />
+            </label>
+            <button className={styles.loginFormBtn} type="submit">Log In</button>
+            </div>
+          </form>
+            <div className={styles.signContainer}>
+              <div className={styles.signText}>
+              <h1>Welcome, Friend!</h1>
+                <p>Start your journey with us!</p>
+                <Link to='/signup'>
+                <button class={styles.ghost} id="signUp">Sign Up</button>
+                  </Link>
+                  </div>
+                </div>
+      </div>
   );
 }
 

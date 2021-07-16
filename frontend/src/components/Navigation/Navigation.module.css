@@ -1,0 +1,38 @@
+.login {
+    display: block;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.signBtn {
+    background-color: #f2cf43;
+    background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 150px;
+    border-radius: 15px;
+    border: 1px #19a186
+}
+
+.home {
+    background-color: #f9484a;
+    background-image: linear-gradient(315deg, #f9484a 0%, #fbd72b 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 150px;
+    border-radius: 15px;
+    border: 1px #19a186
+}
+.homediv {
+    display: block;
+    float: left;
+    margin-left: -40px
+}

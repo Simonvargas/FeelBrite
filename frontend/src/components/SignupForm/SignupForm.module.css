@@ -1,0 +1,93 @@
+.signupForm {
+    background-color: #FFFFFF;
+	 display: flex; 
+	align-items: center;
+	justify-content: center;
+	flex-direction: column; 
+	height: 50%;
+	text-align: center;
+    width: 50%;
+	float:left;
+}
+
+.signupForm {
+	background-color: #FFFFFF;
+	display: flex; 
+   align-items: center;
+   justify-content: center;
+   flex-direction: column; 
+   height: 50%;
+   text-align: center;
+   width: 50%;
+   float:left;
+}
+
+.ghost {
+    border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 250px
+} 
+
+.container {
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	width: 100%;
+	height: 650px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 60px;
+}
+
+.signupBtn {
+	border-radius: 20px;
+	border: 1px blue;
+	background-color: blue;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 5px;
+	margin-left: 35px;
+	width: 150px;
+}
+
+.signContainer {
+	width: 50%;
+	float: left;
+	background-color: #76daff;
+background-image: linear-gradient(315deg, #76daff 0%, #fcd000 74%);
+    background-size: cover;
+	display: flex;
+	justify-content: center;
+}
+
+.signText {
+	display: block;
+	margin-top: 180px;
+	text-align: center;
+}
+.login {
+	display: block;
+	margin-top: 180px;
+	text-align: center;
+}
+
+.input {
+    background-color: #eee;
+	border: none;
+	border-radius: 6px;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 80%;
+}
