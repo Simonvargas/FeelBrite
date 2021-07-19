@@ -28,16 +28,16 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    history.push('/')
+    history.push('/login')
   };
 
   return (
     <>
      <div className={styles.dropdown}>
-              <i className="fas fa-user-circle fa-3x"></i>
+              <i className="icon fas fa-user-circle fa-4x"></i>
             <div className={styles.dropdownContent}>
               <NavLink className={styles.links} to='/profile'>Profile</NavLink>
-              <NavLink className={styles.links} to='/' onClick={logout}>Log Out</NavLink>
+              <NavLink className={styles.links} to='/login' onClick={logout}>Log Out</NavLink>
               
               </div>
       </div>

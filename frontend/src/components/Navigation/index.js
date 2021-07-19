@@ -17,7 +17,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
       <div className={styles.dropdown}>
-              <i className="far fa-user-circle fa-3x"></i>
+              <i className="far fa-user-circle fa-4x"></i>
             <div className={styles.dropdownContent}>
               <Link className={styles.links} to='/login'>Log in</Link>
               <Link className={styles.links} to='/signup'>Sign up</Link>
@@ -28,25 +28,20 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
+    <nav className={styles.navBar}>
       <div className={styles.homediv}>
         <Link exact to="/">
-        <button class={styles.home}>Home</button>
+        <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link>
-      </div>
-   
-   
-    <div class={styles.searchBar}>
-      <div class={styles.search}>
-          <input type="text" class={styles.input} placeholder="Begin Your Search"></input>
+        <div className={styles.searchBar}>
+          <input type="text" class={styles.input} placeholder="Begin Your Search" className={styles.bar}></input>
           <button type="submit" class={styles.searchButton}>
             <i class="fa fa-search"></i>
         </button>  
+        </div>
         {isLoaded && sessionLinks}
-      </div>
-    </div>  
-        
-    </ul>
+        </div>
+    </nav>
   );
 }
 

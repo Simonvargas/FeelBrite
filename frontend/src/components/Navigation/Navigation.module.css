@@ -32,22 +32,15 @@
     border: 1px #19a186
 }
 .homediv {
-    display: block;
-    float: left;
-    margin-left: -40px
+    display: flex;
+    justify-content: space-evenly;
 }
-
-
-.search {
-    display: block;
-    text-align: center;
-}
-
 
 .dropdown {
     position: relative;
     display: inline-block;
     float: right;
+    top: 15px;
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -89,17 +82,56 @@
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
-.fas {
-    width: 100px;
-}
-
-.profileBtn {
-display: block;
-float: right;
-}
-
 .profileDropdown {
     float: right;
     width: 500px;
 }
 a { color: inherit; } 
+
+.logo {
+    position: relative;
+    top: -30px;
+
+}
+
+.bar {
+    border-radius: 6px;
+    width: 380px;
+    height: 29px;
+    position: relative;
+    top: 30px;
+}
+
+.searchButton {
+    position:relative;
+    top: 30px;
+    width: 40px;
+    height: 36px;
+    border-radius: 6px;
+    border: white
+}
+
+.searchButton:hover {
+    background-color: #f9c1b1;
+    background-image: linear-gradient(315deg, #f9c1b1 0%, #fb8085 74%);
+
+}
+
+.bar:hover {
+    background-color: #f2dd6e;
+    background-image: linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%);
+
+}
+.navBar {
+    background-color: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    height: 110px;   
+    width: 102%;
+    position: relative;
+    top: -10px;
+    left: -10px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+}
+

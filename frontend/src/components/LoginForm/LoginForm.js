@@ -53,7 +53,7 @@ function LoginForm() {
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
                 required
-                placeholder='Email'
+                placeholder='Username or Email'
               />
             </label>
             <label>
@@ -72,7 +72,7 @@ function LoginForm() {
             <div className={styles.signContainer}>
               <div className={styles.signText}>
                 <Link exact to="/">
-                <button class={styles.home}>Home</button>
+                <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
                </Link>
               <h1>Welcome, Friend!</h1>
                 <p>Start your journey with us!</p>

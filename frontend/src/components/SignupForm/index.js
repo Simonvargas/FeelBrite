@@ -35,8 +35,8 @@ function SignupFormPage() {
     <div className={styles.signContainer}>
         <div className={styles.signText}>
         <Link exact to="/">
-        <button class={styles.home}>Home</button>
-        </Link>
+                <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
+               </Link>
         <h1>Hello, Friend.</h1>
             <p>Have an Account?</p>
             <Link to='/login'>
