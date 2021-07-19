@@ -118,8 +118,8 @@ a { color: inherit; }
 }
 
 .bar:hover {
-    background-color: #f2dd6e;
-    background-image: linear-gradient(319deg, #f2dd6e 0%, #cff27e 37%, #ef959d 100%);
+    background-color: #e7eff9;
+    background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%);
 
 }
 .navBar {
