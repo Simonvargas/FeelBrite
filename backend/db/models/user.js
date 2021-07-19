@@ -84,7 +84,8 @@ module.exports = (sequelize, DataTypes) => {
   
   User.associate = function(models) {
     User.hasMany(models.Registration, {foreignKey: 'userId'})
-    User.belongsToMany(models.Bookmark, {through: 'Bookmark', otherKey: 'eventsId', foreignKey: 'userId'})
+    User.belongsToMany(models.Bookmark, {through: 'Bookmark', otherKey: 'eventId', foreignKey: 'userId'})
+    User.hasMany(models.Event, {foreignKey: 'hostId'})
   };
   return User;
 };

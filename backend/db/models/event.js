@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     Event.hasMany(models.Registration, {foreignKey: 'eventId'})
     Event.belongsToMany(models.User, {through: 'Bookmark', otherKey:'userId', foreignKey: 'eventId'})
     Event.belongsTo(models.Category, {foreignKey: 'categoryId'})
+    Event.belongsTo(models.User, {foreignKey: 'hostId'})
   };
   return Event;
 };
