@@ -41,10 +41,9 @@
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	width: 100%;
-	height: 650px;
+	height: 700px;
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 60px;
 }
 
 .signupBtn {
@@ -90,4 +89,18 @@ background-image: linear-gradient(315deg, #76daff 0%, #fcd000 74%);
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 80%;
+}
+
+.home {
+	background-color: #3f0d12;
+	background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 150px;
+    border-radius: 15px;
+    border: 1px #19a186
 }

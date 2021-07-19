@@ -37,8 +37,9 @@
 	border-radius: 6px;
 	padding: 12px 15px;
 	margin: 8px 0;
-	width: 100%;
+	width: 75%;
 }
+
 
 .ghost {
     border-radius: 20px;
@@ -59,10 +60,9 @@
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	width: 100%;
-	height: 650px;
+	height: 700px;
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 60px;
 }
 
 .signContainer {
@@ -89,4 +89,37 @@
 	margin-top: 200px
 }
 
+
+.home {
+	background-color: #3f0d12;
+	background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 150px;
+    border-radius: 15px;
+    border: 1px #19a186;
+	margin-bottom: 50px;
+}
+
+.demoBtn {
+	border-radius: 20px;
+	border: 1px solid #e889dc;
+	background-color: #e899dc;
+	background-image: linear-gradient(315deg, #e899dc 0%, #d387ab 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 250px
+}
+
+.demoContainer {
+	padding: 50px;
+}
 

@@ -34,7 +34,10 @@ function SignupFormPage() {
 <div className={styles.container}>
     <div className={styles.signContainer}>
         <div className={styles.signText}>
-        <h1>Hello, Friend</h1>
+        <Link exact to="/">
+        <button class={styles.home}>Home</button>
+        </Link>
+        <h1>Hello, Friend.</h1>
             <p>Have an Account?</p>
             <Link to='/login'>
             <button class={styles.ghost} id="signUp">Log in</button>
