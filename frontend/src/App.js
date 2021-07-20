@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignupForm';
-import Navigation from './components/Navigation';
 import LoginForm from './components/LoginForm/LoginForm';
 import HomePage from './components/HomePage/HomePage'
 

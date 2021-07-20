@@ -34,7 +34,7 @@ function ProfileButton({ user }) {
   return (
     <>
      <div className={styles.dropdown}>
-              <i className="icon fas fa-user-circle fa-4x"></i>
+              <i className="icon fas fa-user-circle fa-3x"></i>
             <div className={styles.dropdownContent}>
               <NavLink className={styles.links} to='/profile'>Profile</NavLink>
               <NavLink className={styles.links} to='/' onClick={logout}>Log Out</NavLink>

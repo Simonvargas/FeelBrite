@@ -77,7 +77,7 @@ function LoginForm() {
               <h1>Welcome, Friend!</h1>
                 <p>Start your journey with us!</p>
                 <Link to='/signup'>
-                <button class={styles.ghost} id="signUp">Sign Up</button>
+                <button className={styles.ghost} id="signUp">Sign Up</button>
                   </Link>
                   <div className={styles.demoContainer}>
                   <h1>Or try as a Demo User!</h1>

@@ -21,23 +21,15 @@ module.exports = {
         allowNull: false
       },
       image: {
-        type: Sequelize.STRING(150),
+        type: Sequelize.STRING(500),
         allowNull: false
       },
       date: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      address: {
+      location: {
         type: Sequelize.STRING(150),
-        allowNull: false
-      },
-      city: {
-        type: Sequelize.STRING(30),
-        allowNull: false
-      },
-      state: {
-        type: Sequelize.STRING(30),
         allowNull: false
       },
       capacity: {

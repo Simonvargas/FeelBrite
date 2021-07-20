@@ -5,14 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     date: DataTypes.DATE,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
+    location: DataTypes.STRING,
     capacity: DataTypes.INTEGER
   }, {});
   Event.associate = function(models) {
     Event.hasMany(models.Registration, {foreignKey: 'eventId'})
-    Event.belongsToMany(models.User, {through: 'Bookmark', otherKey:'userId', foreignKey: 'eventId'})
     Event.belongsTo(models.Category, {foreignKey: 'categoryId'})
     Event.belongsTo(models.User, {foreignKey: 'hostId'})
   };
