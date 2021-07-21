@@ -1,0 +1,30 @@
+.container {
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+          0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  top: 2px;
+  display: block;
+  background-color: #5b6467;
+  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+}
+
+.photo {
+    width: 40%;
+    position: relative;
+    bottom: 50px;
+    border-radius: 12px;
+}
+.h2 {
+    position: relative;
+    bottom: 90px;
+}
+.container2 {
+    padding: 15px; 
+	display: flex; 
+   align-items: center;
+   justify-content: center;
+   flex-direction: column; 
+   height: 50%;
+   text-align: center;
+}

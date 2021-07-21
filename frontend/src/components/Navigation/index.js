@@ -30,16 +30,12 @@ function Navigation({ isLoaded }){
   return (
     <nav className={styles.navBar}>
       <div className={styles.homediv}>
-        
         <Link exact to="/">
         <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link> 
-        <div className={styles.searchBar}>
-          <input type="text" class={styles.input} placeholder="Begin Your Search" className={styles.bar}></input>
-          <button type="submit" class={styles.searchButton}>
-            <i class="fa fa-search"></i>
-        </button>  
-        </div>
+       
+        <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink>
+
         {isLoaded && sessionLinks}
         </div>
     </nav>

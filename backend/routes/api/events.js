@@ -21,4 +21,10 @@ router.post('/',asyncHandler(async function (req, res) {
     })
   );
 
+router.get('/:id', asyncHandler(async function (req, res) {
+  const id = req.params.id
+  const event = await Event.findByPk(id)
+  return res.json(event)
+}))
+
 module.exports = router;

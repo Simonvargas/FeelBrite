@@ -4,23 +4,21 @@ import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
-import { useParams } from 'react-router';
 
-import styles from './details.module.css'
-
-function Details() {
+import styles from './Profile.module.css'
+function Profile() {
 
   const dispatch = useDispatch();
-  const { id } = useParams()
-  const [event, setEvents] = useState([])
+
+  const [events, setEvents] = useState([])
 
   useEffect(() => {
     (async function(){
-      const res = await csrfFetch(`/api/events/${id}`)
+      const res = await csrfFetch('/api/events')
 
       if (res.ok) {
-        const oneEvent = await res.json()
-        setEvents(oneEvent)
+        const newEvents = await res.json()
+        setEvents(newEvents)
       }
     })()
   }, [])
@@ -32,18 +30,24 @@ function Details() {
   }, [dispatch]);
 
   return isLoaded && (
-    <div>
+      <>
+      
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
-      
-      <div className={styles.container}>
-        <div className={styles.container2}>
-      <h2 className={styles.h2}>{event.name}</h2>
-      <img className={styles.photo} src={event.image} alt='photo'></img>
+      <div>
+        
       </div>
+      <div className={styles.eventsContainer}>
+        {events.map(event => 
+        <Link to={`/details/${event.id}`}>
+          <b className={styles.eventName}>{event.name}</b>
+          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          </Link>
+          
+        )}
       </div>
-  </div>
-  )
+      </>
+  );
 }
 
-export default Details;
+export default Profile;

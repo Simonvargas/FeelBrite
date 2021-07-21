@@ -10,11 +10,9 @@ module.exports = {
       },
       hostId: {
         type: Sequelize.STRING(50),
-        allowNull: false
       },
       categoryId: {
         type: Sequelize.INTEGER(50),
-        allowNull: false
       },
       name: {
         type: Sequelize.STRING(30),
@@ -25,7 +23,7 @@ module.exports = {
         allowNull: false
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING(100),
         allowNull: false
       },
       location: {
