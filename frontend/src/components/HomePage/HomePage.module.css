@@ -17,7 +17,6 @@
     visibility: hidden;
    display: block;
    margin: auto;
-   border-radius: 6px;
 }
 
 .fitImg {
@@ -31,6 +30,7 @@
     margin: auto;
     object-fit: cover;
     padding: 20px;
+    border-radius: 100px;
 }
 
 .eventsContainer {
@@ -42,8 +42,18 @@
     text-align: center;
     justify-content: center;
     top: 40px
+    
 }
 
 .eventName {
     text-decoration: none;
+}
+
+.containerphoto {
+    border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	padding: 15px;
+
 }

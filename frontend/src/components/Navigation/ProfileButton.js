@@ -8,10 +8,10 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // };
   
   useEffect(() => {
     if (!showMenu) return;
@@ -40,7 +40,6 @@ function ProfileButton({ user }) {
             <div className={styles.dropdownContent}>
               <NavLink className={styles.links} to='/profile'>Profile</NavLink>
               <NavLink className={styles.links} to='/' onClick={logout}>Log Out</NavLink>
-              
               </div>
       </div>
 

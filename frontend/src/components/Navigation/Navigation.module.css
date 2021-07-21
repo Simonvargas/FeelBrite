@@ -148,7 +148,7 @@ a { color: inherit; }
 
 .createBtn {
     position: relative;
-    right: -1080px;
+    left: 550px;
     width: 100px;
     height: 50px;
     top: 7px;

@@ -34,7 +34,7 @@ function Navigation({ isLoaded }){
         <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link> 
        
-        <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink>
+        {/* <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink> */}
 
         {isLoaded && sessionLinks}
         </div>

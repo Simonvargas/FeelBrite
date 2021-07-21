@@ -28,3 +28,24 @@
    height: 50%;
    text-align: center;
 }
+.btn {
+    border-radius: 20px;
+	border: 1px blue;
+	background-color: #ffa69e;
+    background-image: linear-gradient(315deg, #ffa69e 0%, #5d4954 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 250px;
+    position: relative;
+    margin: 5px;
+    bottom: 25px;
+}
+
+.btn:hover {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+}

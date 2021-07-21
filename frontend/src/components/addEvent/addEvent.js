@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { useHistory } from 'react-router';
 import { addEvent } from '../../store/events';
-import { Link } from 'react-router-dom'
 import styles from './addEvent.module.css'
 
 function AddEvent() {
@@ -22,6 +21,8 @@ function AddEvent() {
     useEffect(() => {
       dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
+
+
   
     const handleSubmit = async (e) => {
         e.preventDefault()

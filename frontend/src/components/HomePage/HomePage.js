@@ -37,15 +37,16 @@ function HomePage() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
       <div className={styles.photoContainer}>
-      <img className={styles.photo} src='https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-national-sports-minimalist-silhouette-blue-sky-banner-image_176796.jpg' alt='photo'></img>
+      <img className={styles.photo} src='https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-national-sports-minimalist-silhouette-blue-sky-banner-image_176796.jpg' alt='fitness'></img>
       </div>
       <div className={styles.eventsContainer}>
         {events.map(event => 
+        <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
           <b className={styles.eventName}>{event.name}</b>
           <img className={styles.fitImg}src={event.image} alt={event.name}></img>
           </Link>
-          
+          </div>
         )}
       </div>
       </>

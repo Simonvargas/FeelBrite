@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import configureStore from './store';
 import * as sessionActions from './store/session';
-import Navigation from './components/Navigation/index';
 
 const store = configureStore()
 

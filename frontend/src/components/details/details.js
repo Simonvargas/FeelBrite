@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { Link } from 'react-router-dom'
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
@@ -23,7 +22,7 @@ function Details() {
         setEvents(oneEvent)
       }
     })()
-  }, [])
+  }, [id])
 
   // console.log('events!!', events)
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,7 +38,9 @@ function Details() {
       <div className={styles.container}>
         <div className={styles.container2}>
       <h2 className={styles.h2}>{event.name}</h2>
-      <img className={styles.photo} src={event.image} alt='photo'></img>
+      <img className={styles.photo} src={event.image} alt='nice'></img>
+      <button className={styles.btn} type='submit'>Register</button>
+      <button className={styles.btn} type='submit'>Bookmark</button>
       </div>
       </div>
   </div>
