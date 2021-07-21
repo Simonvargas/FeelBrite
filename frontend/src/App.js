@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from './components/SignupForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import HomePage from './components/HomePage/HomePage'
+import AddEvent from './components/addEvent/addEvent'
 
 function App() {
  
@@ -12,15 +13,23 @@ function App() {
   return (
     <>
     <Switch>
-      <route path='/' exact>
+      
+      <Route path='/' exact>
         <HomePage />
-      </route>
-      <route path='/login'>
+      </Route>
+      
+      <Route path='/login'>
         <LoginForm />
-      </route>
-      <Route path="/signup">
+      </Route>
+      
+      <Route path='/signup'>
         <SignupFormPage />
       </Route>
+      
+      <Route path='/add'>
+        <AddEvent/>
+      </Route>
+
     </Switch>
     </>
   );

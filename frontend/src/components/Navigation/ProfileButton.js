@@ -33,7 +33,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink>
      <div className={styles.dropdown}>
+              
               <i className="icon fas fa-user-circle fa-3x"></i>
             <div className={styles.dropdownContent}>
               <NavLink className={styles.links} to='/profile'>Profile</NavLink>

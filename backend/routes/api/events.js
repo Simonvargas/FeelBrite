@@ -10,16 +10,15 @@ const router = express.Router();
 
 
 router.get('/', asyncHandler(async(req, res, next) => {
-    try {
     const events = await Event.findAll();
     res.json(events)
-    } catch (err) {
-        next.err
-     }
 }))
 
-// router.get('/registration', restoreUser, asyncHandler)
 
-
+router.post('/',asyncHandler(async function (req, res) {
+      const event = await Event.create(req.body);
+      return res.json(event)
+    })
+  );
 
 module.exports = router;

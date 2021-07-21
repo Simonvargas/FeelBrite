@@ -30,6 +30,7 @@ function Navigation({ isLoaded }){
   return (
     <nav className={styles.navBar}>
       <div className={styles.homediv}>
+        
         <Link exact to="/">
         <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link> 

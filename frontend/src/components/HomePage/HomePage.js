@@ -25,7 +25,7 @@ function HomePage() {
     })()
   }, [])
 
-  console.log('events!!', events)
+  // console.log('events!!', events)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -40,9 +40,13 @@ function HomePage() {
       <img className={styles.photo} src='https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-national-sports-minimalist-silhouette-blue-sky-banner-image_176796.jpg' alt='photo'></img>
       </div>
       <div className={styles.eventsContainer}>
-        {events.map(event => {
-          <h1>{event.id}</h1>
-        })}
+        {events.map(event => 
+        <Link to={`/details/${event.id}`}>
+          <b className={styles.eventName}>{event.name}</b>
+          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          </Link>
+          
+        )}
       </div>
       </>
   );

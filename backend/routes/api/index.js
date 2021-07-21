@@ -5,7 +5,7 @@ const eventsRouter = require('./events.js')
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/', eventsRouter)
+router.use('/events', eventsRouter)
     
 
 

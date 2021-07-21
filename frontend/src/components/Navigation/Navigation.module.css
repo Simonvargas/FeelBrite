@@ -128,18 +128,34 @@ a { color: inherit; }
     background-color: #f6f6f6;
     background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%);
     height: 70px;   
-    width: 101%;
+    width: 100%;
     position: relative;
-    top: -10px;
-    left: -7px;
+    /* top: -10px; */
+    /* left: -7px; */
     /* border-radius: 10px; */
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
     0 10px 10px rgba(0,0,0,0.22);
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .searchBar {
     position: relative;
-    right: 430px;
     top: -13px;
+} 
+
+.createBtn {
+    position: relative;
+    right: -370px;
+    width: 100px;
+    height: 50px;
+    top: 5px;
+    border-radius: 6px;
+    border: transparent;
 }
 
+.createBtn:hover {
+  background-color: #5b6467;
+  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+}
