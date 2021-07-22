@@ -10,9 +10,10 @@ const addOne = (payload) => {
     };
   };
   
-const removeEvent = () => {
+const removeEvent = (payload) => {
     return {
       type: REMOVE_EVENT,
+      payload
     };
   };
   
@@ -46,7 +47,7 @@ const removeEvent = () => {
 
 export const editEvent = (payload) => async dispatch => {
     console.log(payload)
-    const res = await fetch(`/api/events/${payload.id}`, {
+    const res = await csrfFetch(`/api/events/${payload.id}`, {
       method: 'PUT',
       headers: { 'Content-type' : 'application/json' },
       body: JSON.stringify(payload)
@@ -65,8 +66,19 @@ export const deleteEvent = () => async (dispatch) => {
     dispatch(removeEvent());
     return response;
   };
-  
 
+  
+  // export const deleteItem = itemId => async dispatch => {
+  //   const response = await fetch(`/api/items/${itemId}`, {
+  //     method: 'delete',
+  //   });
+  
+  //   if (response.ok) {
+  //     const item = await response.json();
+  //     dispatch(remove(item.id, item.pokemonId));
+  //   }
+  // };
+  
 const initialState = { list: []};
 
   
@@ -88,8 +100,8 @@ const eventReducer = (state = initialState, action) => {
   };  
 } 
     case REMOVE_EVENT:
-      newState = Object.assign({}, state);
-      newState.event = null;
+      const newState = { ...state };
+      delete newState[action.payload];
       return newState;
     default:
       return state;

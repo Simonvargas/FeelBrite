@@ -41,7 +41,7 @@ function EventForm() {
             location,
             capacity,
         };
-        console.log(payload)
+        // console.log(payload)
         let createdEvent = dispatch(editEvent(payload))
         if (createdEvent) {
         }
