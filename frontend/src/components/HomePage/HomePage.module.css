@@ -1,59 +1,57 @@
-.photoContainer {
-    border-radius: 6px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-          0 10px 10px rgba(0,0,0,0.22);
-    width: 100%;
 
-    position: relative;
-    background-image: url(https://www.atmospherefitness.com.au/wp-content/uploads/2018/08/Plyometric-Training-1920x700pxls.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    /* top: -10px; */
-    /* right: 10px */
-}
-
-.photo {
-    visibility: hidden;
-   display: block;
-   margin: auto;
-}
 
 .fitImg {
-    width: 400px;
+    width: 200px;
     height: 300px;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
     display: block;
-    margin: auto;
+    margin: 15px;
     object-fit: cover;
     padding: 20px;
-    border-radius: 100px;
+    border-radius: 50px;
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
+    border-left: 1px solid #333333;
+    border-right: 1px solid #333333;
+    overflow-x: scroll;
+ 
+
+}
+
+.fitImg:hover {
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
 .eventsContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    margin: auto;
     position: relative;
     text-align: center;
     justify-content: center;
-    top: 40px
+    top: 10px;
+    overflow-y: scroll;
+}
+
+.footer {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #ffffff 74%);
     
+    
+    
+    height: 50px;   
+    width: 102%;
+    /* position: relative; */
+    border-radius: 6px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+    box-sizing:border-box;
+    border-top: 1px solid #333333;
+    right: -10px;
+    /* top: 100px; */
+    position: fixed;
+    bottom: 0px;
 }
 
-.eventName {
-    text-decoration: none;
-}
 
-.containerphoto {
-    border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	padding: 15px;
-
-}

@@ -12,7 +12,7 @@ function AddEvent() {
     const [image, setImage] = useState('')
     const [date, setDate] = useState('')
     const [location, setLocation] = useState('')
-    const [capacity, setCapacity] = useState(1)
+    const [capacity, setCapacity] = useState('')
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -38,17 +38,17 @@ function AddEvent() {
             capacity,
         };
         console.log(payload)
-        let createdEvent = dispatch(addEvent(payload))
+        let createdEvent = await dispatch(addEvent(payload))
         if (createdEvent) {
-          history.push('/profile')
+          history.push('/')
         }
     }
   return isLoaded && (
       <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
-      <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.inputForm}>
+  <div className={styles.container}>
+    <form onSubmit={handleSubmit} className={styles.inputForm}>
       <div className={styles.inputContainer}>
         <h2 className={styles.h2}>Create an Event!</h2>
         <label>
@@ -94,6 +94,7 @@ function AddEvent() {
       <label>
           {/* <p>Capacity</p> */}
       <input
+      placeholder='Capacity'
       className={styles.input}
       type='number'
       value={capacity}

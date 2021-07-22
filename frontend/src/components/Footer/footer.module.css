@@ -1,0 +1,8 @@
+.footer{
+    grid-area: foot;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+    position:relative;
+    /* bottom: -50px; */
+  }

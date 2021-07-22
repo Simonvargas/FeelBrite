@@ -27,22 +27,21 @@ router.get('/:id', asyncHandler(async function (req, res) {
   return res.json(event)
 }))
 
-router.put('/:id', asyncHandler(async function (req, res) {
-  const event= await Event.update({
-    where: { id: req.params.id },
-});
-  const newEvent = await Event.findByPk(event)
+router.patch('/:id', asyncHandler(async function (req, res) {
+  const number = parseInt( req.params.id, 10 );
+  const { hostId, name, image, date, location, capacity } = req.body
+  const event = await Event.findByPk(number)
+  const newEvent = event.update({name, image, date, location, capacity})
   return res.json(newEvent)
 }))
 
 
 
 router.delete('/:id', asyncHandler( async(req, res) => {
-  const eventId = req.params.id
-  const userId = req.user.id
-  const event = await Event.findOne({where : { eventId, userId }});
-  await registration.destroy()
-  res.json(eventId)
+  // const number = parseInt( req.params.id, 10 );
+  const event = await Event.findByPk(req.params.id);
+  await event.destroy()
+  res.json({})
 }))
 
 

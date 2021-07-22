@@ -3,11 +3,10 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import Navigation from '../Navigation/index'
-// import { Events } from '../../../../backend/db/models/event'
 import { csrfFetch } from '../../store/csrf';
+import Footer from '../Footer/Footer'
 
 import styles from'./HomePage.module.css'
-
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -36,9 +35,7 @@ function HomePage() {
       
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
-      <div className={styles.photoContainer}>
-      <img className={styles.photo} src='https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-national-sports-minimalist-silhouette-blue-sky-banner-image_176796.jpg' alt='fitness'></img>
-      </div>
+     
       <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>
@@ -46,8 +43,16 @@ function HomePage() {
           <b className={styles.eventName}>{event.name}</b>
           <img className={styles.fitImg}src={event.image} alt={event.name}></img>
           </Link>
+          <div className={styles.secondNav}>
+        
+        </div>
           </div>
+          
         )}
+        
+      </div>
+      <div className={styles.footer}>
+      <Footer />
       </div>
       </>
   );

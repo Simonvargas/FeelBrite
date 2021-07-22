@@ -10,10 +10,10 @@ const addOne = (payload) => {
     };
   };
   
-const removeEvent = (payload) => {
+const removeEvent = (eventId) => {
     return {
       type: REMOVE_EVENT,
-      payload
+      eventId
     };
   };
   
@@ -48,26 +48,26 @@ const removeEvent = (payload) => {
 export const editEvent = (payload) => async dispatch => {
     console.log(payload)
     const res = await csrfFetch(`/api/events/${payload.id}`, {
-      method: 'PUT',
-      headers: { 'Content-type' : 'application/json' },
+      method: 'PATCH',
+      headers: { 'Content-Type' : 'application/json' },
       body: JSON.stringify(payload)
     })
-    const editedEvent = await res.json()
     if (res.ok) {
+      const editedEvent = await res.json()
       dispatch(addOne(editedEvent))
+      return editedEvent
     }
-    return editedEvent
 }
 
-export const deleteEvent = () => async (dispatch) => {
-    const response = await csrfFetch('/api/events', {
+export const deleteEvent = (eventId) => async (dispatch) => {
+    console.log('hello')
+    const response = await csrfFetch(`/api/events/${eventId}`, {
       method: 'DELETE',
     });
     dispatch(removeEvent());
     return response;
   };
 
-  
   // export const deleteItem = itemId => async dispatch => {
   //   const response = await fetch(`/api/items/${itemId}`, {
   //     method: 'delete',
@@ -83,7 +83,6 @@ const initialState = { list: []};
 
   
 const eventReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
       case ADD_ONE: {
    if (!state[action.payload.id]) {

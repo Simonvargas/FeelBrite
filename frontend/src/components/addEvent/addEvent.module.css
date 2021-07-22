@@ -12,13 +12,13 @@
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
           0 10px 10px rgba(0,0,0,0.22);
-  position: relative;
-  width: 100%;
-  top: 2px;
+  /* position: relative; */
+  width: 600px;
+  display: relative;
   height: 600px;
-  display: block;
-  /* margin-top: 100px; */
-  text-align: center;
+  /* display: block; */
+  margin: auto;
+  /* text-align: center; */
   background-color: #5b6467;
   background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
 }
@@ -52,6 +52,6 @@
 
 .h2 {
     position: relative;
-    bottom: 50px;
+    bottom: 40px;
 }
 

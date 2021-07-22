@@ -1,15 +1,11 @@
-import Navigation from '../Navigation/index'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch } from "react-redux";
-import * as sessionActions from "../../store/session";
-import { useHistory } from 'react-router';
-import { addEvent } from '../../store/events';
 import styles from './eventForm.module.css'
 import { useSelector } from 'react-redux';
 import { editEvent } from '../../store/events';
 import { useParams } from 'react-router-dom'
 
-function EventForm() {
+function EventForm({setShowForm}) {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [date, setDate] = useState('')
@@ -17,15 +13,10 @@ function EventForm() {
     const [capacity, setCapacity] = useState(1)
 
     const dispatch = useDispatch();
-    const history = useHistory()
-    const { id } = useParams()
-    const [isLoaded, setIsLoaded] = useState(false);
-    
+    const { id } = useParams()    
     const sessionUser = useSelector(state => state.session.user);
 
-    useEffect(() => {
-      dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    }, [dispatch]);
+   
 
     const hostId = sessionUser.id
   
@@ -44,6 +35,7 @@ function EventForm() {
         // console.log(payload)
         let createdEvent = dispatch(editEvent(payload))
         if (createdEvent) {
+        setShowForm(false)
         }
     }
   return (
@@ -99,7 +91,7 @@ function EventForm() {
       value={capacity}
       onChange={(e) => setCapacity(e.target.value)}/>
       </label>
-      <button className={styles.btn} type='submit'>create event!</button>
+      <button className={styles.btn}  type='submit'>create event!</button>
       </div>
       </form>
       </div>
