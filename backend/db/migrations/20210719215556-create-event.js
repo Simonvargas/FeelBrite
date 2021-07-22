@@ -10,9 +10,11 @@ module.exports = {
       },
       hostId: {
         type: Sequelize.STRING(50),
+        References: {model: 'Categories'}
       },
       categoryId: {
         type: Sequelize.INTEGER(50),
+        References: {model: 'Users'}
       },
       name: {
         type: Sequelize.STRING(30),

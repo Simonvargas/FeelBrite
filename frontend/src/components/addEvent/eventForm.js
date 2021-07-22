@@ -4,10 +4,12 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { useHistory } from 'react-router';
 import { addEvent } from '../../store/events';
-import styles from './addEvent.module.css'
+import styles from './eventForm.module.css'
 import { useSelector } from 'react-redux';
+import { editEvent } from '../../store/events';
+import { useParams } from 'react-router-dom'
 
-function AddEvent() {
+function EventForm() {
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [date, setDate] = useState('')
@@ -16,6 +18,7 @@ function AddEvent() {
 
     const dispatch = useDispatch();
     const history = useHistory()
+    const { id } = useParams()
     const [isLoaded, setIsLoaded] = useState(false);
     
     const sessionUser = useSelector(state => state.session.user);
@@ -30,6 +33,7 @@ function AddEvent() {
         e.preventDefault()
 
         const payload = {
+            id,
             hostId,
             name,
             image,
@@ -38,19 +42,15 @@ function AddEvent() {
             capacity,
         };
         console.log(payload)
-        let createdEvent = dispatch(addEvent(payload))
+        let createdEvent = dispatch(editEvent(payload))
         if (createdEvent) {
-          history.push('/profile')
         }
     }
-  return isLoaded && (
+  return (
       <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded}
       <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.inputForm}>
       <div className={styles.inputContainer}>
-        <h2 className={styles.h2}>Create an Event!</h2>
         <label>
       <input
       placeholder={sessionUser.username}
@@ -108,4 +108,4 @@ function AddEvent() {
   );
 }
 
-export default AddEvent;
+export default EventForm;

@@ -6,24 +6,9 @@ import { useHistory } from 'react-router-dom'
 import styles from './Navigation.module.css'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
   const history = useHistory()
-  // const openMenu = () => {
-  //   if (showMenu) return;
-  //   setShowMenu(true);
-  // };
-  
-  useEffect(() => {
-    if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
-    document.addEventListener('click', closeMenu);
   
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
 
   const logout = async (e) => {
     e.preventDefault();
@@ -41,6 +26,7 @@ function ProfileButton({ user }) {
               <NavLink className={styles.links} to='/profile'>Profile</NavLink>
               <NavLink className={styles.links} to='/' onClick={logout}>Log Out</NavLink>
               </div>
+              
       </div>
 
     </>

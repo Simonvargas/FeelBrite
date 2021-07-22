@@ -31,7 +31,21 @@ const removeEvent = () => {
     }
   };
 
+  export const register = (payload) => async (dispatch) => {
+    console.log(payload)
+   const response = await csrfFetch("/api/registration", {
+     method: "POST",
+     body: JSON.stringify(payload),
+   });
+   if (response.ok) {
+   const newEvent = await response.json();
+   dispatch(addOne(newEvent))
+   return newEvent;
+   }
+ };
+
 export const editEvent = (payload) => async dispatch => {
+    console.log(payload)
     const res = await fetch(`/api/events/${payload.id}`, {
       method: 'PUT',
       headers: { 'Content-type' : 'application/json' },

@@ -27,4 +27,18 @@ router.get('/:id', asyncHandler(async function (req, res) {
   return res.json(event)
 }))
 
+router.put('/:id', asyncHandler(async function (req, res) {
+  // const id = req.params.id
+  const event = await Event.update(req.body)
+  const newUpdate = await Event.findByPk(event);
+  return res.json(newUpdate)
+}))
+
+router.delete("/:id", asyncHandler(async function (req, res) {
+  const itemId = await Events.destroy(req.params.id);
+  return res.json({ itemId });
+}));
+
+
+
 module.exports = router;

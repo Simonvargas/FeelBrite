@@ -6,6 +6,7 @@ import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 
 import styles from './Profile.module.css'
+
 function Profile() {
 
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Profile() {
 
   useEffect(() => {
     (async function(){
-      const res = await csrfFetch('/api/events')
+      const res = await csrfFetch('/api/events/user')
 
       if (res.ok) {
         const newEvents = await res.json()
@@ -35,13 +36,12 @@ function Profile() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
       <div>
-        
       </div>
       <div className={styles.eventsContainer}>
         {events.map(event => 
         <Link to={`/details/${event.id}`}>
           <b className={styles.eventName}>{event.name}</b>
-          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          <img className={styles.fitImg} src={event.image} alt={event.name}></img>
           </Link>
           
         )}

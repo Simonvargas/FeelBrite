@@ -1,0 +1,56 @@
+
+.inputContainer {
+    padding: 15px; 
+	display: flex; 
+   align-items: center;
+   justify-content: center;
+   flex-direction: column; 
+   height: 50%;
+   text-align: center;
+}
+.inputForm {	
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+          0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  width: 100%;
+  top: 3px;
+  height: 350px;
+  display: block;
+  text-align: center;
+  background-color: #bbf0f3;
+  background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
+}
+
+.input {
+    background-color: #eee;
+	border: none;
+	border-radius: 6px;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 300px;
+    top:65px;
+    position: relative;
+}
+
+.btn {    
+    border-radius: 20px;
+	border: 1px blue;
+	background-color: #ffa69e;
+    background-image: linear-gradient(315deg, #ffa69e 0%, #5d4954 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 250px;
+    position: relative;
+    top: 75px;
+}
+
+.h2 {
+    position: relative;
+    bottom: 50px;
+}
+
