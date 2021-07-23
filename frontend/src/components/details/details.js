@@ -5,10 +5,10 @@ import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
 import styles from './details.module.css'
-import { deleteEvent } from '../../store/events';
+import { deleteEvent, Register } from '../../store/events';
 import EventForm from '../addEvent/eventForm';
 import { useHistory } from 'react-router-dom'
-import * as eventAction from "../../store/events"
+
 
 function Details(){
 
@@ -18,7 +18,8 @@ function Details(){
   const[showForm, setShowForm] = useState(false)
   const history = useHistory()
   
-  console.log(eventAction)
+  const sessionUser = useSelector(state => state.session.user);
+  const userId = sessionUser.id
 
   useEffect(() => {
     (async function(){
@@ -29,8 +30,6 @@ function Details(){
         setEvents(oneEvent)
       }
     })()
-    console.log('useEffect****')
-    console.log(eventAction)
   }, [id, showForm])
 
  
@@ -39,6 +38,17 @@ function Details(){
     history.push('/')
   }
  
+   async function Registers() {
+    const eventId = parseInt(id)
+    const payload = {
+      userId,
+      eventId
+
+    }
+    console.log(payload)
+    await dispatch(Register(payload))
+    history.push('/profile')
+  }
 
   function click() {
   setShowForm(true)
@@ -59,9 +69,9 @@ function Details(){
         <div className={styles.container2}>
       <h2 className={styles.h2}>{event.name}</h2>
       <img className={styles.photo} src={event.image} alt='nice'></img>
+      <div className={styles.details}>{event.details}</div>
       <div className={styles.btnContainer}>
-      <button className={styles.btn} type='submit'>Register</button>
-      <button className={styles.btn} type='submit'>Bookmark</button>
+      <button className={styles.btn} onClick={Registers} type='submit'>Register</button>
       <button className={styles.btn} onClick={click} type='submit'>Edit Event</button>
       <button className={styles.btn} onClick={Delete} type='submit'>Delete Event</button>
       </div>

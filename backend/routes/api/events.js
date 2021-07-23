@@ -45,6 +45,7 @@ router.delete('/:id', asyncHandler( async(req, res) => {
 }))
 
 
+
 // router.delete("/:id", asyncHandler(async function (req, res) {
 //   const itemId = await Events.destroy(req.params.id);
 //   return res.json({ itemId });

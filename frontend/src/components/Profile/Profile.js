@@ -8,25 +8,25 @@ import styles from './Profile.module.css'
 import { useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
 function Profile() {
-
+  const [events, setEvents] = useState([]);
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-
-  const [events, setEvents] = useState([])
-
-  useEffect(() => {
-    (async function(){
-      const res = await csrfFetch('/api/events')
-
-      if (res.ok) {
-        const newEvents = await res.json()
-        setEvents(newEvents)
-      }
-    })()
-  }, [])
-
+  const sessionUser = useSelector(state => state.session.user)
   
-  // console.log('events!!', events)
+  // const userEvents = sessionUser?.Registration?.map(b => b.eventId)
+  // console.log(userEvents)
+  
+  // useEffect(() => {
+  //   (async function () {
+  //     const res = await csrfFetch("/api/events");
+  //     if (res.ok) {
+  //       const newEvents = await res.json();
+  //       const registered = newEvents.filter(e => userEvents.includes(e.id))
+  //       setEvents(registered);
+  //     }
+  //   })();
+  // }, []);
+
+
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));

@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     hostId: DataTypes.STRING,
     categoryId: DataTypes.INTEGER,
     name: DataTypes.STRING,
+    details: DataTypes.STRING,
     date: DataTypes.STRING,
     image: DataTypes.STRING,
     location: DataTypes.STRING,
-    capacity: DataTypes.INTEGER
   }, {});
   Event.associate = function(models) {
     Event.hasMany(models.Registration, {foreignKey: 'eventId'})

@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.STRING(30),
         allowNull: false
       },
+      details: {
+        type: Sequelize.STRING(1000),
+        allowNull: false
+      },
       image: {
         type: Sequelize.STRING(500),
         allowNull: false
@@ -30,10 +34,6 @@ module.exports = {
       },
       location: {
         type: Sequelize.STRING(150),
-        allowNull: false
-      },
-      capacity: {
-        type: Sequelize.INTEGER,
         allowNull: false
       },
       createdAt: {
