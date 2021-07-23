@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
@@ -8,7 +8,7 @@ import styles from './details.module.css'
 import { deleteEvent } from '../../store/events';
 import EventForm from '../addEvent/eventForm';
 import { useHistory } from 'react-router-dom'
-
+import * as eventAction from "../../store/events"
 
 function Details(){
 
@@ -16,8 +16,10 @@ function Details(){
   const { id } = useParams()
   const [event, setEvents] = useState([])
   const[showForm, setShowForm] = useState(false)
-
   const history = useHistory()
+  
+  console.log(eventAction)
+
   useEffect(() => {
     (async function(){
       const res = await csrfFetch(`/api/events/${id}`)
@@ -28,6 +30,7 @@ function Details(){
       }
     })()
     console.log('useEffect****')
+    console.log(eventAction)
   }, [id, showForm])
 
  
@@ -56,10 +59,12 @@ function Details(){
         <div className={styles.container2}>
       <h2 className={styles.h2}>{event.name}</h2>
       <img className={styles.photo} src={event.image} alt='nice'></img>
+      <div className={styles.btnContainer}>
       <button className={styles.btn} type='submit'>Register</button>
       <button className={styles.btn} type='submit'>Bookmark</button>
       <button className={styles.btn} onClick={click} type='submit'>Edit Event</button>
       <button className={styles.btn} onClick={Delete} type='submit'>Delete Event</button>
+      </div>
       </div>
       </div>
       <div className={styles.showFormDiv}>

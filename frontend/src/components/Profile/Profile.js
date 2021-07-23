@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react'
-import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
-
+import ProfileWelcome from './ProfileWelcome'
 import styles from './Profile.module.css'
-
+import { useSelector } from 'react-redux'
+import * as sessionActions from '../../store/session';
 function Profile() {
 
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
 
   const [events, setEvents] = useState([])
 
   useEffect(() => {
     (async function(){
-      const res = await csrfFetch('/api/events/user')
+      const res = await csrfFetch('/api/events')
 
       if (res.ok) {
         const newEvents = await res.json()
@@ -24,6 +25,7 @@ function Profile() {
     })()
   }, [])
 
+  
   // console.log('events!!', events)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -37,15 +39,14 @@ function Profile() {
       {isLoaded}
       <div>
       </div>
-      <div className={styles.eventsContainer}>
-        {events.map(event => 
-        <Link to={`/details/${event.id}`}>
-          <b className={styles.eventName}>{event.name}</b>
-          <img className={styles.fitImg} src={event.image} alt={event.name}></img>
-          </Link>
-          
-        )}
-      </div>
+      <div className={styles.container}>
+        <div className={styles.eventsContainer}>
+          <ProfileWelcome />
+       </div>
+       </div>
+       {events.filter(event => {
+        <p>{event.hostId === sessionUser.id? event.name : ''}</p>
+       })}
       </>
   );
 }

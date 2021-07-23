@@ -1,5 +1,8 @@
 import React from "react";
-function ProfileWelcome({ username, email }) {
+import {useSelector } from 'react-redux'
+import * as sessionActions from '../../store/session';
+function ProfileWelcome() {
+  const sessionUser = useSelector(state => state.session.user);
   return (
     <>
       <div className={`profile-image-container`}>
@@ -7,22 +10,15 @@ function ProfileWelcome({ username, email }) {
           alt={`img`}
           className={"profile-image"}
           src={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEDkuWj-NptUtUtELceffh2mJFjqqJn_2H4BZALsqVUSYXiP3rhQBTbvX09VEauipfdsQ&usqp=CAU"
+            "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier"
           }
         ></img>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: "30px",
-        }}
-      >
-        <h3>Welcome back, {username}!</h3>
+      <div>
+        <h3>Welcome back, {sessionUser.username}!</h3>
         <div>
-          <h4>Username: {username}</h4>
-          <h4>Email: {email}</h4>
+          <h4>Username: {sessionUser.username}</h4>
+          <h4>Email: {sessionUser.email}</h4>
         </div>
       </div>
     </>

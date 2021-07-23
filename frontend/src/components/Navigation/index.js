@@ -11,7 +11,9 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
       <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -31,7 +33,7 @@ function Navigation({ isLoaded }){
     <>
     <nav className={styles.navBar}>
       <div className={styles.homediv}>
-      <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink>
+      {sessionUser ?<NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
         <Link exact to="/">
         <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link> 
