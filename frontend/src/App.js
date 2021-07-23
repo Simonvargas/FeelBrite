@@ -4,9 +4,9 @@ import LoginForm from './components/LoginForm/LoginForm';
 import HomePage from './components/HomePage/HomePage'
 import AddEvent from './components/addEvent/addEvent'
 import Profile from './components/Profile/Profile'
-import Details from './components/details/Details'
-
-
+// import Details from './components/details/Details'
+// import Details from './components/details/Details';
+import EventDetails from './components/EventDetails/EventDetails';
 function App() {
  
  
@@ -35,7 +35,7 @@ function App() {
       </Route>
 
       <Route path='/details/:id'>
-        <Details />
+        <EventDetails />
       </Route>
 
     </Switch>

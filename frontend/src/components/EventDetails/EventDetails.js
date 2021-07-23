@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
-import styles from './details.module.css'
+import styles from './eventDetails.module.css'
 import { deleteEvent, Register } from '../../store/events';
 import EventForm from '../addEvent/eventForm';
 import { useHistory } from 'react-router-dom'
 
 
-function Details(){
+function EventDetails(){
 
   const dispatch = useDispatch();
   const { id } = useParams()
@@ -54,7 +54,6 @@ function Details(){
   setShowForm(true)
   }
 
-  // console.log('events!!', events)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -82,4 +81,4 @@ function Details(){
   </div>
   )
   }
-  export default Details;
+  export default EventDetails;
