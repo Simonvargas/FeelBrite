@@ -10,7 +10,7 @@ function EventForm({setShowForm}) {
     const [image, setImage] = useState('')
     const [date, setDate] = useState('')
     const [location, setLocation] = useState('')
-    const [capacity, setCapacity] = useState(1)
+    const [details, setDetails] = useState('')
 
     const dispatch = useDispatch();
     const { id } = useParams()    
@@ -27,10 +27,10 @@ function EventForm({setShowForm}) {
             id,
             hostId,
             name,
+            details,
             image,
             date,
             location,
-            capacity,
         };
         // console.log(payload)
         let createdEvent = dispatch(editEvent(payload))
@@ -85,11 +85,12 @@ function EventForm({setShowForm}) {
       </label>
       <label>
           {/* <p>Capacity</p> */}
-      <input
+      <textarea
+      placeholder='Event details'
       className={styles.input}
-      type='number'
-      value={capacity}
-      onChange={(e) => setCapacity(e.target.value)}/>
+      type='text'
+      value={details}
+      onChange={(e) => setDetails(e.target.value)}/>
       </label>
       <button className={styles.btn}  type='submit'>create event!</button>
       </div>

@@ -24,7 +24,7 @@ function AddEvent() {
       dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
-    const hostId = sessionUser.id
+    const hostId = sessionUser?.id
   
     const handleSubmit = async (e) => {
         e.preventDefault()

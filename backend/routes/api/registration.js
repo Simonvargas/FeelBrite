@@ -16,14 +16,23 @@ router.post('/',asyncHandler(async function (req, res) {
   })
 );
 
-
-router.delete('/:id', asyncHandler( async(req, res) => {
-  // const number = parseInt( req.params.id, 10 );
-  const event = await Event.findByPk(req.params.id);
-  await event.destroy()
-  res.json({})
+router.get('/', asyncHandler(async(req, res, next) => {
+  const registration = await Registration.findAll();
+  console.log(registration)
+  res.json(registration)
 }))
 
+// router.delete('/:id', asyncHandler( async(req, res) => {
+//   // const number = parseInt( req.params.id, 10 );
+//   const event = await Event.findByPk(req.params.id);
+//   await event.destroy()
+//   res.json({})
+// }))
 
+router.delete('/:id', asyncHandler( async(req, res) => {
+  const register = await Registration.findByPk(req.params.id);
+  await register.destroy()
+  res.json({})
+}))
 
 module.exports = router;

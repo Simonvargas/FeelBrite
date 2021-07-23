@@ -65,7 +65,13 @@ router.get(
     }
   );
   
-  
+router.get('/:id', asyncHandler(async(req, res, next) => {
+    const userId = req.user.id
+    const eventId = req.params.id
+
+    const events = await Registration.findOne({where: { userId, eventId }})
+    res.json(events)
+}))  
 
 
 module.exports = router;

@@ -12,4 +12,47 @@
     left: 20px;
     border-radius: 10px;
     text-align: center;
+    margin: auto;
+}
+
+.fitImg {
+    width: 200px;
+    height: 300px;
+    display: block;
+    margin: 15px;
+    object-fit: cover;
+    padding: 20px;
+    border-radius: 50px;
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
+    border-left: 1px solid #333333;
+    border-right: 1px solid #333333;
+    overflow-x: scroll;
+ 
+
+}
+
+.fitImg:hover {
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.eventsContainer2 {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    top: 60px;
+    overflow-y: scroll;
+}
+
+.h2 {
+ 
+    text-align: center;
+    position: relative;
+    top: 40px;
+    left: 20px;
 }

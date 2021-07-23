@@ -29,9 +29,9 @@ router.get('/:id', asyncHandler(async function (req, res) {
 
 router.patch('/:id', asyncHandler(async function (req, res) {
   const number = parseInt( req.params.id, 10 );
-  const { hostId, name, image, date, location, capacity } = req.body
+  const { hostId, name, details, image, date, location } = req.body
   const event = await Event.findByPk(number)
-  const newEvent = event.update({name, image, date, location, capacity})
+  const newEvent = event.update({name, image, details, date, location })
   return res.json(newEvent)
 }))
 

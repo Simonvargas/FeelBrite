@@ -68,6 +68,14 @@ export const deleteEvent = (eventId) => async (dispatch) => {
     return response;
   };
 
+  export const deleteRegister = (eventId) => async (dispatch) => {
+    console.log('hello')
+    const response = await csrfFetch(`/api/registration/${eventId}`, {
+      method: 'DELETE',
+    });
+    dispatch(removeEvent());
+    return response;
+  };
   // export const deleteItem = itemId => async dispatch => {
   //   const response = await fetch(`/api/items/${itemId}`, {
   //     method: 'delete',

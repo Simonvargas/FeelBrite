@@ -19,7 +19,7 @@ function Details(){
   const history = useHistory()
   
   const sessionUser = useSelector(state => state.session.user);
-  const userId = sessionUser.id
+  const userId = sessionUser?.id
 
   useEffect(() => {
     (async function(){
@@ -72,8 +72,7 @@ function Details(){
       <div className={styles.details}>{event.details}</div>
       <div className={styles.btnContainer}>
       <button className={styles.btn} onClick={Registers} type='submit'>Register</button>
-      <button className={styles.btn} onClick={click} type='submit'>Edit Event</button>
-      <button className={styles.btn} onClick={Delete} type='submit'>Delete Event</button>
+      {event.hostId === userId ? <button className={styles.btn} onClick={click} type='submit'>Edit Event</button> : ''}
       </div>
       </div>
       </div>

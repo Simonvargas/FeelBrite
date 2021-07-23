@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       hostId: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.INTEGER,
         References: {model: 'Categories'}
       },
       categoryId: {

@@ -15,10 +15,10 @@ function ProfileWelcome() {
         ></img>
       </div>
       <div>
-        <h3>Welcome back, {sessionUser.username}!</h3>
+        <h3>Welcome back, {sessionUser?.username}!</h3>
         <div>
-          <h4>Username: {sessionUser.username}</h4>
-          <h4>Email: {sessionUser.email}</h4>
+          <h4>Username: {sessionUser?.username}</h4>
+          <h4>Email: {sessionUser?.email}</h4>
         </div>
       </div>
     </>

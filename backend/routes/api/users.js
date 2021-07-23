@@ -44,7 +44,7 @@ router.post(
     }),
   );
   
-router.get('/', asyncHandler(async(req, res, next) => {
+router.get('/:id', asyncHandler(async(req, res, next) => {
     const userId = req.user.id
     const eventId = req.params.id
 
