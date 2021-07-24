@@ -35,7 +35,7 @@ function HomePage() {
       
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
-     
+     <div className={styles.contain2}>
       <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>
@@ -49,7 +49,8 @@ function HomePage() {
           </div>
           
         )}
-        
+        </div>
+        <Footer />
       </div>
       <div className={styles.footer}>
       <Footer />

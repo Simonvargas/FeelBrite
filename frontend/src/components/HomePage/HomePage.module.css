@@ -4,10 +4,11 @@
     width: 200px;
     height: 300px;
     display: block;
-    margin: 15px;
+    margin:auto;
+    /* margin: 15px; */
     object-fit: cover;
     padding: 20px;
-    border-radius: 50px;
+    border-radius: 30px;
     border-bottom: 1px solid #333333;
     border-top: 1px solid #333333;
     border-left: 1px solid #333333;
@@ -31,7 +32,11 @@
     text-align: center;
     justify-content: center;
     top: 10px;
-    overflow-y: scroll;
+    /* overflow-x: scroll;
+    overflow-y:hidden;
+    width: 100%;
+    white-space: nowrap;
+    height: 500px; */
 }
 
 .footer {
@@ -54,4 +59,22 @@
     bottom: 0px;
 }
 
+
+
+ /* .eventsContainer .containerphoto {
+    width: 24.5%;
+    float: none;
+    height: 90%;
+    margin: 0 0.25%;
+    display: inline-block;
+    zoom: 1;
+
+}
+
+.containerphoto {
+    text-align: center;
+} */
+html, body {
+    margin:0px;
+  }
 

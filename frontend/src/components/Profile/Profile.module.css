@@ -68,6 +68,7 @@
 
 html, body {
     margin:0px;
+    height: 100%;
   }
 /* .border {
     border-bottom: 1px solid #333333;
@@ -81,3 +82,8 @@ html, body {
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
+
+/* * {
+    margin: 0;
+    padding: 0;
+  } */
