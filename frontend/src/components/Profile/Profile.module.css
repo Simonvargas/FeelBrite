@@ -8,8 +8,8 @@
     width: 200px;
     height: 350px;
     position: relative;
-    top: 20px;
-    left: 20px;
+    top: 40px;
+    /* left: 20px; */
     border-radius: 10px;
     text-align: center;
     margin: auto;
@@ -29,7 +29,6 @@
     border-right: 1px solid #333333;
     overflow-x: scroll;
  
-
 }
 
 .fitImg:hover {
@@ -53,6 +52,32 @@
  
     text-align: center;
     position: relative;
-    top: 40px;
-    left: 20px;
+    top: 60px;
+    /* left: 20px; */
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
+}
+
+.fullbody {
+    /* position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px; */
+}
+
+html, body {
+    margin:0px;
+  }
+/* .border {
+    border-bottom: 1px solid #333333;
+    border-top: 1px solid #333333;
+    
+} */
+
+.deleteBtn:hover {
+    -webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(0deg) scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }

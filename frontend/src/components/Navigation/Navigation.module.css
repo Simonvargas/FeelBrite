@@ -83,36 +83,32 @@
 a { color: inherit; } 
 
 .logo {
-    width: 100px;
+    width: 90px;
     position: relative;
-    bottom: 23px;
-    left: 30px;
+    bottom: 15px;
+    /* left: 30px; */
 }
 .navBar {
-    /* background-color: #f6f6f6;
-    background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%); */
+
     height: 50px;   
-    width: 102%;
+    width: 100%;
     position: relative;
     border-radius: 6px;
-    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-    0 10px 10px rgba(0,0,0,0.22); */
     box-sizing:border-box;
     border-bottom: 1px solid #333333;
-    right: 15px;
 }
 
 
 .createBtn {
     width: 105px;
-    height: 50px;
+    height: 49px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     position:relative;
-    left: 10px;
-    bottom: 5px;
+    /* left: 10px; */
+    /* top: 1px; */
 }
 
 .createBtn:hover {
@@ -127,19 +123,19 @@ a { color: inherit; }
 
 .loginContent {
     position:relative;
-    top: 8px;
+    top: 10px;
 }
 
 .secondNav {
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #ffffff 74%);
     height: 60px;   
-    width: 102%;
+    width: 100%;
     position: relative;
     border-radius: 6px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
     0 10px 10px rgba(0,0,0,0.22);
     box-sizing:border-box;
     border-bottom: 1px solid #333333;
-    right: 15px;
+    /* right: 15px; */
 }

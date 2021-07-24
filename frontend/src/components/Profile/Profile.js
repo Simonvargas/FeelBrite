@@ -65,7 +65,6 @@ function Profile() {
 
   return isLoaded && (
       <>
-      
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
       <div>
@@ -89,8 +88,9 @@ function Profile() {
           </div>
        )}
        </div>
+       <div className={styles.border}>
        <h2 className={styles.h2}>Registered Events</h2>
-      
+       </div>
        <div className={styles.eventsContainer2}>
        {events.map(event => {
         for (let i = 0; i < registers.length; i++) {
@@ -101,7 +101,7 @@ function Profile() {
                 <b className={styles.eventName}>{event.name}</b>
                 <img className={styles.fitImg}src={event.image} alt={event.name}></img>
                 </Link>
-                <button onClick={() => Delete(event.id)}> delete</button>
+                <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
                 </div>
             )
           
