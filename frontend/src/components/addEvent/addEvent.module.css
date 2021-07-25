@@ -20,8 +20,8 @@
   /* display: block; */
   margin: auto;
   /* text-align: center; */
-  background-color: #5b6467;
-  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+  background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+
 }
 
 .input {
@@ -35,24 +35,28 @@
     position: relative;
 }
 
-.btn {    
-    border-radius: 20px;
-	border: 1px blue;
-	background-color: #ffa69e;
-    background-image: linear-gradient(315deg, #ffa69e 0%, #5d4954 74%);
-	color: #FFFFFF;
-	font-size: 12px;
+.btn {   
+    border-radius: 6px;;
 	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	width: 250px;
+	width: 330px;
     position: relative;
     top: 45px;
+    color: #494949 !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #ffffff;
+	transition: all 0.4s ease 0s;
+}
+.btn:hover {
+    color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
 }
 
 .h2 {
     position: relative;
     bottom: -40px;
+    color: white;
 }
 

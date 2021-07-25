@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import Navigation from '../Navigation/index'
+import SecondNavigation from '../Navigation/secondNav'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
 import styles from './eventDetails.module.css'
@@ -71,7 +71,7 @@ function EventDetails(){
 
   return isLoaded && (
     <div>
-      <Navigation isLoaded={isLoaded} />
+      <SecondNavigation isLoaded={isLoaded} />
       {isLoaded}
       
       <div className={styles.container}>

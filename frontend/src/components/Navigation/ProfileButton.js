@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session';
 import { NavLink } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import styles from './Navigation.module.css'
-import {useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()

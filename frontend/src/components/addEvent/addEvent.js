@@ -1,4 +1,4 @@
-import Navigation from '../Navigation/index'
+import SecondNavigation from '../Navigation/secondNav'
 import { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
@@ -45,7 +45,7 @@ function AddEvent() {
     }
   return isLoaded && (
       <>
-      <Navigation isLoaded={isLoaded} />
+      <SecondNavigation isLoaded={isLoaded} />
       {isLoaded}
   <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.inputForm}>

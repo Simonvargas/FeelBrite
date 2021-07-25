@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import styles from'./Navigation.module.css';
+import styles from'./Navigation2.module.css';
 
-function Navigation({ isLoaded }){
+function SecondNavigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   
 
@@ -19,7 +19,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
       <div className={styles.dropdown}>
-              <i id={styles.icon} className="icon far fa-user-circle fa-2x"></i>
+              <i className="icon far fa-user-circle fa-2x"></i>
             <div className={styles.dropdownContent}>
               <Link className={styles.links} to='/login'>Log in</Link>
               <Link className={styles.links} to='/signup'>Sign up</Link>
@@ -38,11 +38,9 @@ function Navigation({ isLoaded }){
         </Link> 
 
       {sessionUser ? <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
-        <div className={styles.logoText}>
-          <b>FeelBrite</b>
-          <h1>The place to start your fitness journey</h1>
-          <p>Get unlimited access to in-person workout classes, live zoom classes, and on demand videos wherever you are</p>
-        </div>
+       
+
+        {/* <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink> */}
 
         {isLoaded && sessionLinks}
         </div>
@@ -52,4 +50,4 @@ function Navigation({ isLoaded }){
   );
 }
 
-export default Navigation;
+export default SecondNavigation;

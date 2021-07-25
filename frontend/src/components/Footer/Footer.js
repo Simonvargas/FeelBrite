@@ -8,8 +8,8 @@ function Footer(){
   return (
     <div>
     <nav className={styles.footer}>
-        <a  href='https://www.linkedin.com/in/simon-vargas-aa0b6a14b/' style={{ marginLeft: '20px', color: "mediumblue",textDecoration:"none" }}>LinkedIn</a>
-        <a  href={linkedIn} style={{ marginLeft: '20px', color: "mediumblue", textDecoration:"none"}}>Github Profile</a>
+        <a  href='https://www.linkedin.com/in/simon-vargas-aa0b6a14b/' style={{ marginLeft: '20px', color: "white",textDecoration:"none" }}>LinkedIn</a>
+        <a  href={linkedIn} style={{ marginLeft: '20px', color: "white", textDecoration:"none"}}>Github Profile</a>
     </nav>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
-import Navigation from '../Navigation/index'
+import SecondNavigation from '../Navigation/secondNav'
 import { csrfFetch } from '../../store/csrf';
 import ProfileWelcome from './ProfileWelcome'
 import styles from './Profile.module.css'
@@ -80,7 +80,7 @@ function Profile() {
 
   return isLoaded && (
       <>
-      <Navigation isLoaded={isLoaded} />
+      <SecondNavigation isLoaded={isLoaded} />
       {isLoaded}
       <div className={styles.grid}>
       <div className={styles.container}>
