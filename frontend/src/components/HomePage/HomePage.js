@@ -7,15 +7,17 @@ import { csrfFetch } from '../../store/csrf';
 import Footer from '../Footer/Footer'
 import Categories from './Categories'
 import styles from'./HomePage.module.css'
+
+import Cat from './cat';
 function HomePage() {
 
   const dispatch = useDispatch();
 
   const [events, setEvents] = useState([])
   const [category, setCategory] = useState([])
-  const[showForm, setShowForm] = useState(false)
+  const[showForm, setShowForm] = useState(true)
   function click() {
-    setShowForm(true)
+    setShowForm(false)
     }
   
   useEffect(() => {
@@ -41,19 +43,15 @@ function HomePage() {
     })()
   }, [])
 
+const categoryType = category.map(e => e.type)
 const categoryId = category.map(e => e.id)
-console.log(categoryId)
 
-function catClick() {
-  events.map(event =>  (
-    <div className={styles.containerphoto}>
-    <Link to={`/details/${event.id}`}>
-      <b className={styles.eventName}>{event.name}</b>
-      <img className={styles.fitImg}src={event.image} alt={event.name}></img>
-      </Link>
-      </div>
-  )
-  )}
+
+
+  function toggle() {
+    setShowForm(true)
+  }
+
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -66,13 +64,17 @@ function catClick() {
       {isLoaded}
       
      <div className={styles.contain2}>
-     <div className={styles.cat}>
-     {category.map(cat => 
-      <button onClick={click}>{cat.type}</button>)}
+     
+        <div className={styles.cat}>
+        <button className={styles.catBtn} onClick={toggle}>All events</button>
+        <button className={styles.catBtn} onClick={click} value={categoryId[0]}>{categoryType[0]}</button>
+        <button className={styles.catBtn} onClick={click} value={categoryId[1]}>{categoryType[1]}</button>
+        <button className={styles.catBtn} onClick={click} value={categoryId[2]}>{categoryType[2]}</button>
+        <button className={styles.catBtn} onClick={click} value={categoryId[3]}>{categoryType[3]}</button>
         </div>
         {/* <div className={styles.showFormDiv}> */}
       {showForm? <Categories setShowForm={setShowForm}/> : ''}
-      <div className={styles.eventsContainer}>
+      {/* <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
@@ -82,7 +84,7 @@ function catClick() {
           </div>
           
         )}
-        </div>
+        </div> */}
       </div>
       <div className={styles.footer}>
       <Footer />
@@ -95,13 +97,4 @@ export default HomePage;
 
 
 
-// { if (cat.id === events[i].categoryId) {
-//   return ( 
-//     <div className={styles.containerphoto}>
-// <Link to={`/details/${events[i].id}`}>
-//   <b className={styles.eventName}>{events[i].name}</b>
-//   <img className={styles.fitImg} src={events[i].image} alt={events[i].name}></img>
-//   </Link>
-//   </div>
-//   )
-// }
+// { if (cat.id === events[i].cat

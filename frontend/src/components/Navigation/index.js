@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
     <>
     <nav className={styles.navBar}>
       <div className={styles.homediv}>
-      {sessionUser ?<NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
+      {sessionUser ? <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
         <Link exact to="/">
         <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
         </Link> 
@@ -43,11 +43,7 @@ function Navigation({ isLoaded }){
         {isLoaded && sessionLinks}
         </div>
     </nav>
-    <nav>
-      <div className={styles.secondNav}>
-        
-      </div>
-    </nav>
+   
     </>
   );
 }

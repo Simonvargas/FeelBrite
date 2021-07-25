@@ -1,34 +1,17 @@
 
-
-.eventsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-    0 10px 10px rgba(0,0,0,0.22);
-    width: 200px;
-    height: 350px;
-    position: relative;
-    top: 40px;
-    left: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin: auto;
-}
-
 .fitImg {
     width: 200px;
     height: 200px;
-    display: block;
-    margin: 15px;
-    object-fit: cover;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     border-radius: 50px;
     border-bottom: 1px solid #333333;
     border-top: 1px solid #333333;
     border-left: 1px solid #333333;
     border-right: 1px solid #333333;
-    overflow-x: scroll;
-    grid-area: sidebar
+    
  
 }
 
@@ -40,35 +23,28 @@
 }
 
 .eventsContainer2 {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    text-align: center;
-    justify-content: center;
-    top: 60px; 
-    /* /* overflow-y: scroll;
-      overflow-x: scroll;
-    overflow-y:hidden;
-    width: 100%;
-    white-space: nowrap;
-    height: 350px;
-    grid-area: content;
-  position: relative;
-  left: 150px;  */
+overflow-y: auto;
+white-space: nowrap;
+text-align: center;
+display: inline-block;
+justify-content: center;
+align-items: center;
+width: 30%;
+margin-left: 20px
+
+
 }
 
 .h2 {
     height: 30px;
     text-align: center;
-    position: relative;
-    /* top: 50px; */
-    /* left: 140px; */
     width: 100%;
+    position: relative;
+    /* right: 40px; */
     border-bottom: 1px solid #333333;
     border-top: 1px solid #333333;
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #ffffff 74%);
-    /* grid-area: header */
 }
 
 
@@ -77,41 +53,74 @@ html, body {
     height: 100%;
   }
 
-
+.deleteBtn {
+    color: #494949 !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #ffffff;
+	transition: all 0.4s ease 0s;
+    height: 30px;
+    position: relative;
+    top: 10px;
+}
 .deleteBtn:hover {
-    -webkit-transform: rotate(15deg) scale(1.4);
-	transform: rotate(0deg) scale(1.5);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+    color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
 }
 
-/* .grid {
+.grid {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 250px 1000px 200px;
-    grid-template-areas:
-    "header  header  header"
-    "sidebar content content"
-    "footer  footer  footer"; 
+    grid-template-columns: 100px 300px 300px ;
     background-color: #fff;
     color: #444; 
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 200px 500px 300px 300px;
-    background-color: #fff;
-    color: #444;
-} */
+}
 
+.containerphoto {
+    width: 100%;
+    height: 270px;
+}
 
+.eventsContainer1 {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  
+}
 
+.eventsContainer3 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 6;
+}
 
-/* .eventsContainer2 .containerphoto { 
-    width:24.0%;
-    float: none;
-    height: 90%;
-    margin: 0 0.25%;
-    display: inline-block;
-    margin-left: 100px;
-    zoom: 1;
+.eventsContainer4 {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
 
-} */
+.eventsContainer {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+    width: 250px;
+    height: 350px;
+    position: relative;
+    top: 40px;
+    left: 80px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+  
+
+}
+
+.profileImageContainer .profileImage {
+  width: 100%;
+  height: 200px;
+}

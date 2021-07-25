@@ -88,28 +88,31 @@ function Profile() {
           <ProfileWelcome />
        </div>
        </div>
-       <div className={styles.eventsContainer2}>
+       <div className={`${styles.eventsContainer1}`}>
        <h2 className={styles.h2}>Your Created Events</h2>
-       {events.map(event => 
-        <div>{event.hostId === sessionUser?.id ? <div className={styles.containerphoto}>
+       {events.map(event => {
+         if (event.hostId === sessionUser?.id) { 
+           return (
+        <div className={styles.eventsContainer2}>
+          <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
           <b className={styles.eventName}>{event.name}</b>
-          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          <img className={`${styles.fitImg}`}src={event.image} alt={event.name}></img>
           </Link>
-          <button onClick={() => Delete(event.id)}> delete</button>
-        
-          </div>: ''}
+          <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
           </div>
-       )}
+          </div>
+          )
+          }
+})}
        </div>
-       <div className={styles.border}>
-       </div>
-       <div className={styles.eventsContainer2}>
+       <div className={`${styles.eventsContainer3} `}>
        <h2 className={styles.h2}>Registered Events</h2>
        {events.map(event => {
         for (let i = 0; i < registers.length; i++) {
           if (event.id === registers[i].eventId && sessionUser?.id === registers[i].userId) {
             return (
+              <div className={styles.eventsContainer2}>
             <div className={styles.containerphoto}>
               <Link to={`/details/${event.id}`}>
                 <b className={styles.eventName}>{event.name}</b>
@@ -117,23 +120,26 @@ function Profile() {
                 </Link>
                 <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
                 </div>
+                </div>
             )
           
         } 
 }})}
 </div>
- <div className={styles.eventsContainer2}>
+ <div className={`${styles.eventsContainer4}`}>
        <h2 className={styles.h2}>Bookmarks</h2>
        {events.map(event => {
         for (let i = 0; i < bookmarks.length; i++) {
           if (event.id === bookmarks[i].eventId && sessionUser?.id === bookmarks[i].userId) {
             return (
+          <div className={styles.eventsContainer2}>
             <div className={styles.containerphoto}>
               <Link to={`/details/${event.id}`}>
                 <b className={styles.eventName}>{event.name}</b>
                 <img className={styles.fitImg}src={event.image} alt={event.name}></img>
                 </Link>
                 <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
+                </div>
                 </div>
             )
           

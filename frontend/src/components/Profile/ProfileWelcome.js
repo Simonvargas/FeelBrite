@@ -1,14 +1,17 @@
 import React from "react";
 import {useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
+
+import styles from './Profile.module.css'
+
 function ProfileWelcome() {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <>
-      <div className={`profile-image-container`}>
+      <div className={styles.profileImageContainer}>
         <img
           alt={`img`}
-          className={"profile-image"}
+          className={styles.profileImage}
           src={
             "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier"
           }
