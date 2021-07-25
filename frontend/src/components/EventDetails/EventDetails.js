@@ -5,7 +5,7 @@ import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import { useParams } from 'react-router';
 import styles from './eventDetails.module.css'
-import { deleteEvent, Register } from '../../store/events';
+import { deleteEvent, Register, Register2 } from '../../store/events';
 import EventForm from '../addEvent/eventForm';
 import { useHistory } from 'react-router-dom'
 
@@ -45,8 +45,18 @@ function EventDetails(){
       eventId
 
     }
-    console.log(payload)
     await dispatch(Register(payload))
+    history.push('/profile')
+  }
+
+  async function Registers2() {
+    const eventId = parseInt(id)
+    const payload = {
+      userId,
+      eventId
+
+    }
+    await dispatch(Register2(payload))
     history.push('/profile')
   }
 
@@ -71,6 +81,7 @@ function EventDetails(){
       <div className={styles.details}>{event.details}</div>
       <div className={styles.btnContainer}>
       <button className={styles.btn} onClick={Registers} type='submit'>Register</button>
+      <button className={styles.btn} onClick={Registers2} type='submit'>Bookmark</button>
       {event.hostId === userId ? <button className={styles.btn} onClick={click} type='submit'>Edit Event</button> : ''}
       </div>
       </div>

@@ -9,7 +9,7 @@
     height: 350px;
     position: relative;
     top: 40px;
-    /* left: 20px; */
+    left: 20px;
     border-radius: 10px;
     text-align: center;
     margin: auto;
@@ -17,7 +17,7 @@
 
 .fitImg {
     width: 200px;
-    height: 300px;
+    height: 200px;
     display: block;
     margin: 15px;
     object-fit: cover;
@@ -28,6 +28,7 @@
     border-left: 1px solid #333333;
     border-right: 1px solid #333333;
     overflow-x: scroll;
+    grid-area: sidebar
  
 }
 
@@ -44,37 +45,38 @@
     position: relative;
     text-align: center;
     justify-content: center;
-    top: 60px;
-    overflow-y: scroll;
+    top: 60px; 
+    /* /* overflow-y: scroll;
+      overflow-x: scroll;
+    overflow-y:hidden;
+    width: 100%;
+    white-space: nowrap;
+    height: 350px;
+    grid-area: content;
+  position: relative;
+  left: 150px;  */
 }
 
 .h2 {
- 
+    height: 30px;
     text-align: center;
     position: relative;
-    top: 60px;
-    /* left: 20px; */
+    /* top: 50px; */
+    /* left: 140px; */
+    width: 100%;
     border-bottom: 1px solid #333333;
     border-top: 1px solid #333333;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #ffffff 74%);
+    /* grid-area: header */
 }
 
-.fullbody {
-    /* position:absolute;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  left:0px; */
-}
 
 html, body {
     margin:0px;
     height: 100%;
   }
-/* .border {
-    border-bottom: 1px solid #333333;
-    border-top: 1px solid #333333;
-    
-} */
+
 
 .deleteBtn:hover {
     -webkit-transform: rotate(15deg) scale(1.4);
@@ -83,7 +85,33 @@ html, body {
 	transition: .3s ease-in-out;
 }
 
-/* * {
-    margin: 0;
-    padding: 0;
-  } */
+/* .grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 250px 1000px 200px;
+    grid-template-areas:
+    "header  header  header"
+    "sidebar content content"
+    "footer  footer  footer"; 
+    background-color: #fff;
+    color: #444; 
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 200px 500px 300px 300px;
+    background-color: #fff;
+    color: #444;
+} */
+
+
+
+
+/* .eventsContainer2 .containerphoto { 
+    width:24.0%;
+    float: none;
+    height: 90%;
+    margin: 0 0.25%;
+    display: inline-block;
+    margin-left: 100px;
+    zoom: 1;
+
+} */

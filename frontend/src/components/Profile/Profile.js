@@ -7,7 +7,7 @@ import ProfileWelcome from './ProfileWelcome'
 import styles from './Profile.module.css'
 import { useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
-import { deleteEvent, Register, deleteRegister } from '../../store/events';
+import { deleteEvent, deleteRegister, deleteBookmark } from '../../store/events';
 import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router';
 
@@ -15,16 +15,17 @@ import { useParams } from 'react-router';
 function Profile() {
   const [events, setEvents] = useState([]);
   const [registers, setRegister] = useState([])
+  const [bookmarks, setBookmark] = useState([])
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
+  const { id } = useParams()
  
-  const[showForm, setShowForm] = useState(false)
-  function click() {
-    setShowForm(true)
-    }
+  // const[showForm, setShowForm] = useState(false)
+  // function click() {
+  //   setShowForm(true)
+  //   }
   
 
-  const { id } = useParams()
   useEffect(() => {
     (async function () {
       const res = await csrfFetch("/api/events");
@@ -47,6 +48,16 @@ function Profile() {
       }
     })();
   }, []);
+  useEffect(() => {
+    (async function () {
+      const res = await csrfFetch("/api/bookmark");
+      if (res.ok) {
+        const bookmark = await res.json();
+       await setBookmark(bookmark);
+      // console.log(bookmark)
+      }
+    })();
+  }, []);
 
   async function Delete(eventId) {
     await dispatch(deleteEvent(eventId))
@@ -55,6 +66,10 @@ function Profile() {
 
   async function RegisterGone(eventId) {
     await dispatch(deleteRegister(eventId))
+    history.push('/')
+  }
+  async function deleteBookmark(eventId) {
+    await dispatch(deleteBookmark(eventId))
     history.push('/')
   }
 
@@ -67,15 +82,14 @@ function Profile() {
       <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded}
-      <div>
-      </div>
+      <div className={styles.grid}>
       <div className={styles.container}>
         <div className={styles.eventsContainer}>
           <ProfileWelcome />
        </div>
        </div>
-       <h2 className={styles.h2}>Your Created Events</h2>
        <div className={styles.eventsContainer2}>
+       <h2 className={styles.h2}>Your Created Events</h2>
        {events.map(event => 
         <div>{event.hostId === sessionUser?.id ? <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
@@ -89,9 +103,9 @@ function Profile() {
        )}
        </div>
        <div className={styles.border}>
-       <h2 className={styles.h2}>Registered Events</h2>
        </div>
        <div className={styles.eventsContainer2}>
+       <h2 className={styles.h2}>Registered Events</h2>
        {events.map(event => {
         for (let i = 0; i < registers.length; i++) {
           if (event.id === registers[i].eventId && sessionUser?.id === registers[i].userId) {
@@ -107,6 +121,25 @@ function Profile() {
           
         } 
 }})}
+</div>
+ <div className={styles.eventsContainer2}>
+       <h2 className={styles.h2}>Bookmarks</h2>
+       {events.map(event => {
+        for (let i = 0; i < bookmarks.length; i++) {
+          if (event.id === bookmarks[i].eventId && sessionUser?.id === bookmarks[i].userId) {
+            return (
+            <div className={styles.containerphoto}>
+              <Link to={`/details/${event.id}`}>
+                <b className={styles.eventName}>{event.name}</b>
+                <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+                </Link>
+                <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
+                </div>
+            )
+          
+        } 
+}})}
+       </div>
        </div>
       </>
   );

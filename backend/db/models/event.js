@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     Event.hasMany(models.Registration, {foreignKey: 'eventId'})
     Event.belongsTo(models.Category, {foreignKey: 'categoryId'})
     Event.belongsTo(models.User, {foreignKey: 'hostId'})
+    Event.hasMany(models.Bookmark, {foreignKey: 'eventId'})
   };
   return Event;
 };

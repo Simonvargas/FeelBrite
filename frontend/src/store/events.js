@@ -45,6 +45,19 @@ const removeEvent = (eventId) => {
    }
  };
 
+ export const Register2 = (payload) => async (dispatch) => {
+  console.log(payload)
+ const response = await csrfFetch("/api/bookmark", {
+   method: "POST",
+   body: JSON.stringify(payload),
+ });
+ if (response.ok) {
+ const registration = await response.json();
+ dispatch(addOne(registration))
+ return registration;
+ }
+};
+
 export const editEvent = (payload) => async dispatch => {
     console.log(payload)
     const res = await csrfFetch(`/api/events/${payload.id}`, {
@@ -70,6 +83,15 @@ export const deleteEvent = (eventId) => async (dispatch) => {
   export const deleteRegister = (eventId) => async (dispatch) => {
     console.log('hello')
     const response = await csrfFetch(`/api/registration/${eventId}`, {
+      method: 'DELETE',
+    });
+    dispatch(removeEvent());
+    return response;
+  };
+
+  export const deleteBookmark = (eventId) => async (dispatch) => {
+    console.log('hello')
+    const response = await csrfFetch(`/api/bookmark/${eventId}`, {
       method: 'DELETE',
     });
     dispatch(removeEvent());

@@ -86,14 +86,13 @@ a { color: inherit; }
     width: 90px;
     position: relative;
     bottom: 15px;
-    /* left: 30px; */
+    left: 35px;
 }
 .navBar {
 
     height: 50px;   
     width: 100%;
     position: relative;
-    border-radius: 6px;
     box-sizing:border-box;
     border-bottom: 1px solid #333333;
 }
@@ -129,12 +128,9 @@ a { color: inherit; }
 .secondNav {
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #ffffff 74%);
-    height: 60px;   
+    height: 50px;   
     width: 100%;
     position: relative;
-    border-radius: 6px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-    0 10px 10px rgba(0,0,0,0.22);
     box-sizing:border-box;
     border-bottom: 1px solid #333333;
     /* right: 15px; */
