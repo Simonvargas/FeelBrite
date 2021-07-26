@@ -19,7 +19,7 @@
 .loginFormBtn {
     border-radius: 20px;
 	border: 1px blue;
-	background-color: blue;
+	background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -28,7 +28,14 @@
 	text-transform: uppercase;
 	margin: 5px;
 	margin-left: 35px;
-	width: 150px;
+	width: 350px;
+}
+
+.loginFormBtn:hover {
+	color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
 }
 
 .input {
@@ -41,7 +48,7 @@
 }
 
 
-.ghost {
+.signupBtn {
     border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -53,6 +60,13 @@
 	text-transform: uppercase;
 	width: 250px
 } 
+
+.signupBtn:hover {
+	color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
+}
 
 .container {
 	border-radius: 10px;
@@ -71,10 +85,7 @@
 .signContainer {
 	width: 50%;
 	float: right;
-	background-color: #05e8ba;
-	background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
-	
-
+	background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
     background-size: cover;
 	display: flex;
 	justify-content: center;
@@ -86,6 +97,8 @@
 	margin-top: 100px;
 	text-align: center;
 	position: relative;
+	bottom: 25px;
+	color: white;
 }
 
 .loginText {
@@ -123,10 +136,18 @@
 	width: 250px
 }
 
+.demoBtn:hover {
+	color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
+}
+
 .demoContainer {
 	padding: 50px;
 }
 
 .logo {
 	width: 150px;
+	position: relative;
 }

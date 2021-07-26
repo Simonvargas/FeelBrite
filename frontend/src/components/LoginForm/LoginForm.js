@@ -72,12 +72,12 @@ function LoginForm() {
             <div className={styles.signContainer}>
               <div className={styles.signText}>
                 <Link exact to="/">
-                <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
+                <img alt='logo' src='https://i.imgur.com/HeZZnbz.png' className={styles.logo}></img>
                </Link>
               <h1>Welcome, Friend!</h1>
                 <p>Start your journey with us!</p>
                 <Link to='/signup'>
-                <button className={styles.ghost} id="signUp">Sign Up</button>
+                <button className={styles.signupBtn} id="signUp">Sign Up</button>
                   </Link>
                   <div className={styles.demoContainer}>
                   <h1>Or try as a Demo User!</h1>

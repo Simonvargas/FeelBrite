@@ -35,12 +35,12 @@ function SignupFormPage() {
     <div className={styles.signContainer}>
         <div className={styles.signText}>
         <Link exact to="/">
-                <img alt='logo' src='https://i.imgur.com/BTfD1Ny.png?1' className={styles.logo}></img>
+                <img alt='logo' src='https://i.imgur.com/HeZZnbz.png' className={styles.logo}></img>
                </Link>
         <h1>Hello, Friend.</h1>
             <p>Have an Account?</p>
             <Link to='/login'>
-            <button class={styles.ghost} id="signUp">Log in</button>
+            <button class={styles.loginBtn} id="signUp">Log in</button>
             </Link>
             </div>
             </div>
