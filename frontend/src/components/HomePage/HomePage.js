@@ -11,6 +11,8 @@ import styles from'./HomePage.module.css'
 import Cycling from './cycling';
 import Yoga from './yoga';
 import CrossFit from './crossfit';
+import OutDoor from './outdoors';
+
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ function HomePage() {
   const [cycling, setCycling] = useState(false)
   const [yogai, setYoga] = useState(false)
   const [crossFit, setCrossFit] = useState(false)
+  const [outDoors, setOutDoors] = useState(false)
 
   function click() {
     setShowForm(false)
@@ -53,6 +56,7 @@ const categoryType = category.map(e => e.type)
 const categoryId = category.map(e => e.id)
 
 function yogi() {
+  setOutDoors(false)
   setCrossFit(false)
   setCycling(false)
   setShowForm(false)
@@ -60,16 +64,26 @@ function yogi() {
 }
 
 function bike() {
+  setOutDoors(false)
   setCrossFit(false)
   setYoga(false)
   setShowForm(false)
   setCycling(true)
 }
 function cross(){
+  setOutDoors(false)
   setCycling(false)
   setYoga(false)
   setShowForm(false)
   setCrossFit(true)
+}
+
+function out() {
+  setCycling(false)
+  setYoga(false)
+  setShowForm(false)
+  setCrossFit(false)
+  setOutDoors(true)
 }
 function toggle() {
   setShowForm(true)
@@ -93,13 +107,14 @@ function toggle() {
         <button className={styles.catBtn} onClick={bike} value={categoryId[0]}>{categoryType[0]}</button>
         <button className={styles.catBtn} onClick={yogi} value={categoryId[1]}>{categoryType[1]}</button>
         <button className={styles.catBtn} onClick={cross} value={categoryId[2]}>{categoryType[2]}</button>
-        <button className={styles.catBtn} onClick={click} value={categoryId[3]}>{categoryType[3]}</button>
+        <button className={styles.catBtn} onClick={out} value={categoryId[3]}>{categoryType[3]}</button>
         </div>
         {/* <div className={styles.showFormDiv}> */}
       {showForm? <EventsComponent setShowForm={setShowForm}/> : ''}
-      {Cycling ? <Cycling /> : ''}
+      {cycling ? <Cycling /> : ''}
       {yogai ? <Yoga /> : ''}
       {crossFit ? <CrossFit /> : ''}
+      {outDoors ?  <OutDoor /> : ''}
       {/* <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>

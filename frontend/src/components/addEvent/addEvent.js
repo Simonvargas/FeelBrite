@@ -13,6 +13,7 @@ function AddEvent() {
     const [date, setDate] = useState('')
     const [location, setLocation] = useState('')
     const [details, setDetails] = useState('')
+    const [categoryId, setCategory] = useState(1)
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -20,6 +21,9 @@ function AddEvent() {
     
     const sessionUser = useSelector(state => state.session.user);
 
+    // function number1() {
+    //   set
+    // }
     useEffect(() => {
       dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
@@ -36,6 +40,7 @@ function AddEvent() {
             details,
             date,
             location,
+            categoryId
         };
         console.log(payload)
         let createdEvent = await dispatch(addEvent(payload))
@@ -91,6 +96,7 @@ function AddEvent() {
       value={location}
       onChange={(e) => setLocation(e.target.value)}/>
       </label>
+      
       <label>
       <textarea
       placeholder='details'
@@ -98,6 +104,15 @@ function AddEvent() {
       type='text'
       value={details}
       onChange={(e) => setDetails(e.target.value)}/>
+      </label>
+      <label> 
+        <select className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
+          <option value='1'>Cycling</option>
+          <option value='2'>Yoga</option>
+          <option value='3'>Crossfit</option>
+          <option value='4'>Outdoors</option>
+          {/* <option value='5'>nice</option> */}
+        </select>
       </label>
       <button className={styles.btn} type='submit'>create event!</button>
       </div>
