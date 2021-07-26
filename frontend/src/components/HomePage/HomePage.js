@@ -8,6 +8,9 @@ import Footer from '../Footer/Footer'
 import EventsComponent from './Events'
 import styles from'./HomePage.module.css'
 
+import Cycling from './cycling';
+import Yoga from './yoga';
+import CrossFit from './crossfit';
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -15,6 +18,10 @@ function HomePage() {
   const [events, setEvents] = useState([])
   const [category, setCategory] = useState([])
   const[showForm, setShowForm] = useState(true)
+  const [cycling, setCycling] = useState(false)
+  const [yogai, setYoga] = useState(false)
+  const [crossFit, setCrossFit] = useState(false)
+
   function click() {
     setShowForm(false)
     }
@@ -45,11 +52,28 @@ function HomePage() {
 const categoryType = category.map(e => e.type)
 const categoryId = category.map(e => e.id)
 
+function yogi() {
+  setCrossFit(false)
+  setCycling(false)
+  setShowForm(false)
+  setYoga(true)
+}
 
-
-  function toggle() {
-    setShowForm(true)
-  }
+function bike() {
+  setCrossFit(false)
+  setYoga(false)
+  setShowForm(false)
+  setCycling(true)
+}
+function cross(){
+  setCycling(false)
+  setYoga(false)
+  setShowForm(false)
+  setCrossFit(true)
+}
+function toggle() {
+  setShowForm(true)
+}
 
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -66,13 +90,16 @@ const categoryId = category.map(e => e.id)
      
         <div className={styles.cat}>
         <button className={styles.catBtn} onClick={toggle}>All events</button>
-        <button className={styles.catBtn} onClick={click} value={categoryId[0]}>{categoryType[0]}</button>
-        <button className={styles.catBtn} onClick={click} value={categoryId[1]}>{categoryType[1]}</button>
-        <button className={styles.catBtn} onClick={click} value={categoryId[2]}>{categoryType[2]}</button>
+        <button className={styles.catBtn} onClick={bike} value={categoryId[0]}>{categoryType[0]}</button>
+        <button className={styles.catBtn} onClick={yogi} value={categoryId[1]}>{categoryType[1]}</button>
+        <button className={styles.catBtn} onClick={cross} value={categoryId[2]}>{categoryType[2]}</button>
         <button className={styles.catBtn} onClick={click} value={categoryId[3]}>{categoryType[3]}</button>
         </div>
         {/* <div className={styles.showFormDiv}> */}
       {showForm? <EventsComponent setShowForm={setShowForm}/> : ''}
+      {Cycling ? <Cycling /> : ''}
+      {yogai ? <Yoga /> : ''}
+      {crossFit ? <CrossFit /> : ''}
       {/* <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>
