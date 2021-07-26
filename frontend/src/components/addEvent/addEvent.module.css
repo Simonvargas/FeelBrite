@@ -31,7 +31,7 @@
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 300px;
-    top:35px;
+    top:75px;
     position: relative;
 }
 
@@ -40,7 +40,8 @@
 	font-weight: bold;
 	width: 330px;
     position: relative;
-    top: 45px;
+    font-size: 17px;
+    top: 80px;
     color: #494949 !important;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -56,7 +57,7 @@
 
 .h2 {
     position: relative;
-    bottom: -40px;
+    bottom: -50px;
     color: white;
 }
 

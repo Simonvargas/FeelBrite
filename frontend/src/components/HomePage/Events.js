@@ -46,7 +46,7 @@ function EventsComponent() {
           
                     return (
         <div className={styles.containerphoto}>
-        <Link to={`/details/${event.id}`}>
+        <Link to={`/details/${event.id}`} style={{ textDecoration: 'none' }}>
           <div>
            <div className={styles.litte}>
           {/* <b className={styles.eventName}>{event.name}</b> */}

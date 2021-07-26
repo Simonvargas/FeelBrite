@@ -41,7 +41,7 @@ function Navigation({ isLoaded }){
        {sessionUser ?  
        <>
        <div className={styles.logoText}>
-          <b>FeelBrite</b>
+          <b>FeelBrite <i class="fas fa-bolt"></i></b>
           <h1>Time to choose your next battle!</h1>
           <p>You have unlimited access to in-person workout classes, live zoom classes, and on demand videos wherever you are.</p>
         </div>
