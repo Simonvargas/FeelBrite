@@ -17,7 +17,7 @@
 
 .fitImg:hover {
     -webkit-transform: rotate(15deg) scale(1.4);
-	transform: rotate(0deg) scale(1.1);
+	transform: rotate(0deg) scale(1.05);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
@@ -36,7 +36,6 @@ margin-left: 20px;
 
 .h2 {
     height: 30px;
-
     text-align: center;
     width: 100%;
     position: relative;
@@ -52,6 +51,7 @@ margin-left: 20px;
 html, body {
     margin:0px;
     height: 100%;
+    
   }
 
 .deleteBtn {
@@ -75,17 +75,19 @@ html, body {
 .grid {
     display: grid;
     /* grid-gap: 10px; */
-    grid-template-columns: 100px 300px 300px ;
+    grid-template-columns: 90px 360px 300px ;
     background-color: #fff;
     color: #444; 
+    
     
 }
 
 .containerphoto {
     width: 100%;
-    height: 270px;
+    height: 280px;
     position: relative;
     /* bottom: 5px; */
+    
 }
 
 .eventsContainer1 {
@@ -96,6 +98,8 @@ html, body {
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+    overflow-x:auto;
+    height: 350px;
 }
 
 .eventsContainer3 {
@@ -106,6 +110,10 @@ html, body {
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+    overflow-x:auto;
+    height: 350px;
+    
+
 }
 
 .eventsContainer4 {
@@ -116,6 +124,8 @@ html, body {
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+    overflow-x:auto;
+    height: 350px;
     
 }
 
@@ -126,7 +136,7 @@ html, body {
     height: 350px;
     position: relative;
     top: 40px;
-    left: 80px;
+    left: 90px;
     border-radius: 10px;
     text-align: center;
     margin: auto;
@@ -137,8 +147,12 @@ html, body {
 .profileImageContainer .profileImage {
   width: 100%;
   height: 200px;
+
 }
 
 .eventName {
     color:white;
+    position: relative;
+    bottom: 2px;
 }
+

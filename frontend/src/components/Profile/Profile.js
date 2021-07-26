@@ -83,10 +83,8 @@ function Profile() {
       <SecondNavigation isLoaded={isLoaded} />
       {isLoaded}
       <div className={styles.grid}>
-      <div className={styles.container}>
         <div className={styles.eventsContainer}>
           <ProfileWelcome />
-       </div>
        </div>
        <div className={`${styles.eventsContainer1}`}>
        <h2 className={styles.h2}>Your Created Events</h2>
