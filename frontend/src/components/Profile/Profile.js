@@ -72,11 +72,16 @@ function Profile() {
     await dispatch(deleteRegister(eventId))
     history.push('/')
   }
-  async function deleteBookmark(eventId) {
-    const payload = {eventId,sessionUserId }
-    await dispatch(unbookmark(eventId))
-    history.push('/')
-  }
+  
+  function deleteBookmark(e) {
+    
+    const val = document.querySelector('.oneBookmark')
+    console.log(val)
+    // const payload = {eventId,sessionUserId }
+    // await dispatch(unbookmark(eventId))
+    // history.push('/')
+}
+
 
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -100,7 +105,7 @@ function Profile() {
           <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
           <b className={styles.eventName}>{event.name}</b>
-          <img className={`${styles.fitImg}`}src={event.image} alt={event.name}></img>
+          <img className={`${styles.fitImg}`} src={event.image} alt={event.name}></img>
           </Link>
           <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
           </div>
@@ -121,7 +126,7 @@ function Profile() {
                 <b className={styles.eventName}>{event.name}</b>
                 <img className={styles.fitImg}src={event.image} alt={event.name}></img>
                 </Link>
-                <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
+                {/* <button className={styles.deleteBtn} value={event.id} onClick={() => Delete(event.id)}>Delete</button> */}
                 </div>
                 </div>
             )
@@ -141,7 +146,7 @@ function Profile() {
                 <b className={styles.eventName}>{event.name}</b>
                 <img className={styles.fitImg}src={event.image} alt={event.name}></img>
                 </Link>
-                <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
+                {/* <button className={`${styles.deleteBtn} ${styles.oneBookmark}`} value='1' onClick={deleteBookmark}> delete</button> */}
                 </div>
                 </div>
             )

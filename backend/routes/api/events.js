@@ -23,8 +23,8 @@ router.post('/',asyncHandler(async function (req, res) {
 
 router.get('/:id', asyncHandler(async function (req, res) {
   const id = req.params.id
-  const event = await Event.findByPk(id, { include: [Bookmark, Registration, Category]})
-  return res.json(event)
+  const event = await Event.findByPk(id, { include: [Bookmark, Registration]})
+  res.json(event)
 }))
 
 router.patch('/:id', asyncHandler(async function (req, res) {

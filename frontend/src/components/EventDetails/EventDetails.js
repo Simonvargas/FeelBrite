@@ -23,6 +23,17 @@ function EventDetails(){
   const sessionUserId = useSelector(state => state.session.user);
   const userId = sessionUserId?.id
 
+  useEffect(()=>{
+    localStorage.getItem('bookmark')
+  },[]);
+  
+  useEffect(()=>{
+    localStorage.setItem('bookmark', bookmark)
+},[bookmark]);
+
+
+
+
   useEffect(() => {
     (async function(){
       const res = await csrfFetch(`/api/events/${id}`)
@@ -41,11 +52,11 @@ function EventDetails(){
     const payload = {
       userId,
       eventId
-
     }
     await dispatch(Register(payload))
     history.push('/profile')
   }
+
   const addToRegister = async () => {
     const response = await csrfFetch("/api/registration", {
       method: "POST",
@@ -73,15 +84,17 @@ function EventDetails(){
   function click() {
   setShowForm(true)
   }
+
   useEffect(() => {
     (async function () {
       const res = await csrfFetch(`/api/events/${id}`);
       if (res.ok) {
         const newEvent = await res.json();
         setEvent(newEvent);
-        setBookmark(
-          newEvent?.Bookmarks?.find((fav) => +fav.userId === +sessionUserId)
-        );
+        setBookmark(newEvent?.Bookmarks?.find((fav) => +fav.userId === +userId));
+        console.log(bookmark)
+        setRegister(newEvent?.Registrations?.find((fav) => +fav.userId === +userId))
+        console.log(register)
       }
     })();
   }, []);

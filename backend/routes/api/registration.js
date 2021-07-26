@@ -29,10 +29,26 @@ router.get('/', asyncHandler(async(req, res, next) => {
 //   res.json({})
 // }))
 
-router.delete('/:id', asyncHandler( async(req, res) => {
-  const register = await Registration.findByPk(req.params.id);
-  await register.destroy()
-  res.json({})
-}))
+// router.delete('/:id', asyncHandler( async(req, res) => {
+//   const register = await Registration.findByPk(req.params.id);
+//   await register.destroy()
+//   res.json({})
+// }))
+
+router.delete(
+  "/",
+  requireAuth,
+  asyncHandler(async (req, res, next) => {
+    let regis = await Registration.findOne({
+      where: { eventId: req.body.eventId, userId: req.body.userId },
+    });
+    if (regis) {
+     await regis.destroy()
+    }
+    res.sendStatus(200);
+    // console.log(bookmark);
+  })
+);
+
 
 module.exports = router;
