@@ -13,10 +13,12 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
           0 10px 10px rgba(0,0,0,0.22);
   position: relative;
-  width: 100%;
+  width: 400px;
   top: 3px;
-  height: 350px;
-  display: block;
+  height: 380px;
+  /* display: block; */
+  /* top: 20px; */
+  margin:auto;
   text-align: center;
   background-color: #000000;
 background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
@@ -34,19 +36,28 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 
 .btn {    
-    border-radius: 20px;
-	border: 1px blue;
-	background-color: #ffa69e;
-    background-image: linear-gradient(315deg, #ffa69e 0%, #5d4954 74%);
-	color: #FFFFFF;
-	font-size: 12px;
+	text-transform: uppercase;
+	transition: all 0.4s ease 0s;
+    padding: 5px;
+    border-radius: 6px;
+	font-size: 15px;
 	font-weight: bold;
-	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	width: 250px;
+	width: 330px;
     position: relative;
     top: 75px;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+
+}
+
+.btn:hover {
+    color: #ffffff !important;
+	background: #f6b93b;
+	border-color: #f6b93b !important;
+	transition: all 0.4s ease 0s;
+    
 }
 
 .h2 {

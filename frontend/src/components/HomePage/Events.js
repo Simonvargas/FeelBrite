@@ -7,7 +7,7 @@ import { csrfFetch } from '../../store/csrf';
 import Footer from '../Footer/Footer'
 
 import styles from'./HomePage.module.css'
-function Categories() {
+function EventsComponent() {
 
   const dispatch = useDispatch();
 
@@ -38,40 +38,32 @@ function Categories() {
     })()
   }, [])
 
-const categoryId = category.map(e => e.id)
-
-
-function catClick() {
-  events.map(event =>  (
-    <div className={styles.containerphoto}>
-    <Link to={`/details/${event.id}`}>
-      <b className={styles.eventName}>{event.name}</b>
-      <img className={styles.fitImg}src={event.image} alt={event.name}></img>
-      </Link>
-      </div>
-  )
-  )}
 
   return  (
       <>
 <div className={styles.eventsContainer}>
         {events.map(event => {
-            for (let i = 0 ; i < category.length; i++) {
-                if (event.categoryId === category[i].id) {
-              
+          
                     return (
         <div className={styles.containerphoto}>
         <Link to={`/details/${event.id}`}>
-          <b className={styles.eventName}>{event.name}</b>
+          <div>
+           <div className={styles.litte}>
+          {/* <b className={styles.eventName}>{event.name}</b> */}
           <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          <b className={styles.eventName}>{event.name}</b>
+          <p className={styles.eventName}>{event.location}</p>
+          </div>
+          </div>
           </Link>
+          
           </div>
                     )
-}}})}
+})}
         </div>
      </>
   );
 }
 
-export default Categories;
+export default EventsComponent;
 

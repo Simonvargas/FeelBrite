@@ -48,11 +48,7 @@ margin-left: 20px;
 }
 
 
-html, body {
-    margin:0px;
-    height: 100%;
-    
-  }
+
 
 .deleteBtn {
     color: #494949 !important;
@@ -98,8 +94,9 @@ html, body {
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
-    overflow-x:auto;
+    overflow-y:auto;
     height: 350px;
+    
 }
 
 .eventsContainer3 {

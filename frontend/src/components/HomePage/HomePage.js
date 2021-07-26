@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom'
 import Navigation from '../Navigation/index'
 import { csrfFetch } from '../../store/csrf';
 import Footer from '../Footer/Footer'
-import Categories from './Categories'
+import EventsComponent from './Events'
 import styles from'./HomePage.module.css'
 
-import Cat from './cat';
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -73,7 +72,7 @@ const categoryId = category.map(e => e.id)
         <button className={styles.catBtn} onClick={click} value={categoryId[3]}>{categoryType[3]}</button>
         </div>
         {/* <div className={styles.showFormDiv}> */}
-      {showForm? <Categories setShowForm={setShowForm}/> : ''}
+      {showForm? <EventsComponent setShowForm={setShowForm}/> : ''}
       {/* <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>

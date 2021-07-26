@@ -92,7 +92,8 @@ function EventForm({setShowForm}) {
       value={details}
       onChange={(e) => setDetails(e.target.value)}/>
       </label>
-      <button className={styles.btn}  type='submit'>create event!</button>
+      <button className={styles.btn}  type='submit'>Submit</button>
+      <button className={styles.btn} onClick={()=> setShowForm(false)} type='submit'>Cancel</button>
       </div>
       </form>
       </div>
