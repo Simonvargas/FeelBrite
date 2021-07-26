@@ -140,8 +140,12 @@ html, body {
     border-radius: 10px;
     text-align: center;
     margin: auto;
-  
+}
 
+
+.eventsContainer2 {
+    position: relative;
+    bottom: 20px;
 }
 
 .profileImageContainer .profileImage {
