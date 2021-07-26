@@ -13,6 +13,9 @@ import Yoga from './yoga';
 import CrossFit from './crossfit';
 import OutDoor from './outdoors';
 
+
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -109,12 +112,12 @@ function toggle() {
         <button className={styles.catBtn} onClick={cross} value={categoryId[2]}>{categoryType[2]}</button>
         <button className={styles.catBtn} onClick={out} value={categoryId[3]}>{categoryType[3]}</button>
         </div>
-        {/* <div className={styles.showFormDiv}> */}
       {showForm? <EventsComponent setShowForm={setShowForm}/> : ''}
       {cycling ? <Cycling /> : ''}
       {yogai ? <Yoga /> : ''}
       {crossFit ? <CrossFit /> : ''}
       {outDoors ?  <OutDoor /> : ''}
+      {/* </SwitchTransition> */}
       {/* <div className={styles.eventsContainer}>
         {events.map(event => 
         <div className={styles.containerphoto}>

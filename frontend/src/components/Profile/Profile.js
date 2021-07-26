@@ -7,7 +7,7 @@ import ProfileWelcome from './ProfileWelcome'
 import styles from './Profile.module.css'
 import { useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
-import { deleteEvent, deleteRegister, deleteBookmark } from '../../store/events';
+import { deleteEvent, deleteRegister, unbookmark } from '../../store/events';
 import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router';
 
@@ -20,6 +20,7 @@ function Profile() {
   const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams()
   const [change, setChange] = useState(true)
+  const sessionUserId = useSelector(state => state.session.user?.id);
   // const[showForm, setShowForm] = useState(false)
   // function click() {
   //   setShowForm(true)
@@ -72,7 +73,8 @@ function Profile() {
     history.push('/')
   }
   async function deleteBookmark(eventId) {
-    await dispatch(deleteBookmark(eventId))
+    const payload = {eventId,sessionUserId }
+    await dispatch(unbookmark(eventId))
     history.push('/')
   }
 

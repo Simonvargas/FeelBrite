@@ -89,24 +89,27 @@ export const deleteEvent = (eventId) => async (dispatch) => {
     return response;
   };
 
-  export const deleteBookmark = (eventId) => async (dispatch) => {
-    console.log('hello')
-    const response = await csrfFetch(`/api/bookmark/${eventId}`, {
+  export const unbookmark = (payload) => async (dispatch) => {
+    console.log(payload)
+    const response = await csrfFetch(`/api/bookmark/`, {
       method: 'DELETE',
+      userId: payload.sessionUserId,
+      eventId: payload.eventId,
     });
     dispatch(removeEvent());
     return response;
   };
-  // export const deleteItem = itemId => async dispatch => {
-  //   const response = await fetch(`/api/items/${itemId}`, {
-  //     method: 'delete',
-  //   });
-  
-  //   if (response.ok) {
-  //     const item = await response.json();
-  //     dispatch(remove(item.id, item.pokemonId));
-  //   }
-  // };
+//  export const unbookmark = async () => {
+//     const response = await csrfFetch("/api/bookmark", {
+//       method: "DELETE",
+//       body: JSON.stringify({
+//         userId: sessionUserId,
+//         eventId: id,
+//       }),
+//     });
+//     dispatch(removeEvent());
+//   };
+ 
   
 const initialState = { list: []};
 

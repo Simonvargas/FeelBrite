@@ -6,6 +6,7 @@ import { useHistory } from 'react-router';
 import { addEvent } from '../../store/events';
 import styles from './addEvent.module.css'
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 function AddEvent() {
     const [name, setName] = useState('')
@@ -18,7 +19,7 @@ function AddEvent() {
     const dispatch = useDispatch();
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false);
-    
+    const { id } = useParams() 
     const sessionUser = useSelector(state => state.session.user);
 
     // function number1() {
@@ -45,7 +46,7 @@ function AddEvent() {
         console.log(payload)
         let createdEvent = await dispatch(addEvent(payload))
         if (createdEvent) {
-          history.push('/profile')
+          history.push(`/details/${createdEvent.id}`)
         }
     }
   return isLoaded && (

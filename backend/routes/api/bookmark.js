@@ -29,10 +29,26 @@ router.get('/', asyncHandler(async(req, res, next) => {
 //   res.json({})
 // }))
 
-router.delete('/:id', asyncHandler( async(req, res) => {
-  const register = await Bookmark.findByPk(req.params.id);
-  await register.destroy()
-  res.json({})
-}))
+// router.delete('/:id', asyncHandler( async(req, res) => {
+//   const register = await Bookmark.findByPk(req.params.id);
+//   await register.destroy()
+//   res.json({})
+// }))
+
+router.delete(
+  "/",
+  requireAuth,
+  asyncHandler(async (req, res, next) => {
+    let bookmark = await Bookmark.findOne({
+      where: { eventId: req.body.eventId, userId: req.body.userId },
+    });
+    if (bookmark) {
+     await bookmark.destroy()
+    }
+    res.sendStatus(200);
+    // console.log(bookmark);
+  })
+);
+
 
 module.exports = router;
