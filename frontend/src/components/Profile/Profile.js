@@ -19,7 +19,7 @@ function Profile() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams()
- 
+  const [change, setChange] = useState(true)
   // const[showForm, setShowForm] = useState(false)
   // function click() {
   //   setShowForm(true)
@@ -59,6 +59,9 @@ function Profile() {
     })();
   }, []);
 
+  useEffect(() => {
+    setChange(true)
+  })
   async function Delete(eventId) {
     await dispatch(deleteEvent(eventId))
     history.push('/')
