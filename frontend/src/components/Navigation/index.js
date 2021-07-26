@@ -38,12 +38,32 @@ function Navigation({ isLoaded }){
         </Link> 
 
       {sessionUser ? <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
+       {sessionUser ?  
+       <>
+       <div className={styles.logoText}>
+          <b>FeelBrite</b>
+          <h1>Time to choose your next battle!</h1>
+          <p>You have unlimited access to in-person workout classes, live zoom classes, and on demand videos wherever you are.</p>
+        </div>
+        <div className={styles.workContainer}>
+        <img className={styles.workPhoto} src='https://i.imgur.com/BTwpHgg.png' alt='workout'></img>
+        </div> 
+        </>
+        :
+        <>
         <div className={styles.logoText}>
           <b>FeelBrite</b>
           <h1>The place to start your fitness journey</h1>
           <p>Get unlimited access to in-person workout classes, live zoom classes, and on demand videos wherever you are</p>
-        </div>
-
+        </div> 
+        <div className={styles.workContainer2}>
+        <img className={styles.workPhoto2} src='https://i.imgur.com/3psEktu.png' alt='workout'></img>
+        </div> 
+        </>
+              }
+              {/* <div className={styles.workContainer}>
+              <img className={styles.workPhoto} src='https://i.imgur.com/BTwpHgg.png' alt='workout'></img>
+              </div> */}
         {isLoaded && sessionLinks}
         </div>
     </nav>
