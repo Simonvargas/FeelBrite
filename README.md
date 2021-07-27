@@ -1,4 +1,4 @@
-# feelbrite
+# FeelBrite
 
 FeelBrite, an EventBrite clone, is an event management and ticketing platform that allows users to explore new fitness related events. This site enables consumers to create events, register for events, browse events through specified categories, and bookmark events.
 
