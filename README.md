@@ -17,48 +17,47 @@ FeelBrite allows consumers to browse through a selection of categories of exerci
 * <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB"></a>
 * <a href="https://redux.js.org/"><img src="https://img.shields.io/badge/redux-%23593d88.svg?style=flat&logo=redux&logoColor=white"></a>
 * <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/-CSS3-1572B6?logo=CSS3" /></a>
-* <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white" /></a>
 * <a href="https://www.heroku.com/home"><img src="https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white" /></a>
 
 
 ## Features
 
 ### Sign In and Sign Up
-![Sign Up](./readme-assets/images/signup.jpg)
-![Login](./readme-assets/images/login.jpg)
+![Sign Up](./readme-assets/images/signup.png)
+![Login](./readme-assets/images/login.png)
 
 ### Events Page
 FeelBrite feed displays all events
 Discover and search for new events
-![Feed Page](./readme-assets/images/feed.jpg)
+![Feed Page](./readme-assets/images/feed.png)
 
 ### View events
 Single {resource-1} of name, photos, {resource-2-plural}
-![eventPage](./readme-assets/images/view.jpg)
+![eventPage](./readme-assets/images/view.png)
 
 ### Add event
 Add a new event to the database
-![Add event](./readme-assets/images/add.jpg)
+![Add event](./readme-assets/images/add.png)
 
 
 ### Edit event 
 Edit your created events
-![edit event](./readme-assets/images/edit.jpg)
+![edit event](./readme-assets/images/edit.png)
 
 ### Delete Event
 Delete your created events
-![delete event](./readme-assets/images/delete.jpg)
+![delete event](./readme-assets/images/delete.png)
 
 ### Categories
 Select from which category of events you'd like t browse from
-![categories](./readme-assets/images/categories.jpg)
+![categories](./readme-assets/images/categories.png)
 ### Registering or Bookmarking
 Register for an event or bookmark it for the future
-![categories](./readme-assets/images/register.jpg)
+![categories](./readme-assets/images/register.png)
 
 ### Profile
 Check to see which events you registered, bookmarked, or created
-![categories](./readme-assets/images/profile.jpg)
+![categories](./readme-assets/images/profile.png)
 
 
 ### Simon Vargas
