@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 import { editEvent } from '../../store/events';
 import { useParams } from 'react-router-dom'
 
-function EventForm({setShowForm}) {
-    const [name, setName] = useState('')
-    const [image, setImage] = useState('')
-    const [date, setDate] = useState('')
-    const [location, setLocation] = useState('')
-    const [details, setDetails] = useState('')
+function EventForm({setShowForm, event}) {
+    const [name, setName] = useState(event.name)
+    const [image, setImage] = useState(event.image)
+    const [date, setDate] = useState(event.date)
+    const [location, setLocation] = useState(event.location)
+    const [details, setDetails] = useState(event.details)
 
     const dispatch = useDispatch();
     const { id } = useParams()    

@@ -155,7 +155,7 @@ function EventDetails(){
       </div>
       </div>
       <div className={styles.showFormDiv}>
-      {showForm? <EventForm setShowForm={setShowForm}/> : ''}
+      {showForm? <EventForm setShowForm={setShowForm} event={event}/> : ''}
       
       </div>
      
