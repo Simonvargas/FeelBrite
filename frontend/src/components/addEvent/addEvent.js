@@ -83,7 +83,7 @@ function AddEvent() {
       </label>
       <label>
       <input
-      placeholder='Date'
+      placeholder='MM/DD/YYYY'
       className={styles.input}
        type='text'
        value={date}
