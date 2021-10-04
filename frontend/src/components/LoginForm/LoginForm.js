@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 import styles from'./LoginForm.module.css'
 
@@ -12,6 +13,8 @@ function LoginForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const user = useSelector(state => state.session.user)
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

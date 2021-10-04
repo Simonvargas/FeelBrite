@@ -7,8 +7,12 @@ import Profile from './components/Profile/Profile'
 // import Details from './components/details/Details'
 // import Details from './components/details/Details';
 import EventDetails from './components/EventDetails/EventDetails';
+import ProtectedRoute from './components/auth/ProtectRoute';
+import { useSelector } from 'react-redux';
+import Login from './components/LoginForm/Login';
 function App() {
- 
+  const user = useSelector(state => state.session.user)
+
  
   return (
     <>
@@ -18,8 +22,8 @@ function App() {
         <HomePage />
       </Route>
       
-      <Route path='/login'>
-        <LoginForm />
+      <Route path='/login' >
+         <Login />
       </Route>
       
       <Route path='/signup'>

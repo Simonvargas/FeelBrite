@@ -91,7 +91,7 @@ function AddEvent() {
       </label>
       <label>
       <input 
-      placeholder='Location'
+      placeholder='Address'
       className={styles.input}
       type='text'
       value={location}
