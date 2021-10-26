@@ -27,8 +27,25 @@ function AddListing({showModal, setShowModal}) {
 
   const handleSubmit = async (e) => {
       e.preventDefault()
+      const data = []
 
-      const payload = {
+      if (name === '') {
+        data.push('Please include a name for your event')
+      }
+      if (image === '') {
+        data.push('Please include an image url')
+      }
+      if (details === '') {
+        data.push('Please write a description for your event')
+      }
+      if (location === ''){
+        data.push('Please include location')
+      }
+      if (data === '') {
+        data.push('Please specify a date')
+      }
+      setErrors(data)
+       const payload = {
           hostId,
           name,
           image,
@@ -37,13 +54,13 @@ function AddListing({showModal, setShowModal}) {
           location,
           categoryId
       };
-      console.log(payload)
-      console.log(payload)
+      if (data.length === 0) {
       let createdEvent = await dispatch(addEvent(payload))
       if (createdEvent) {
         setShowModal(false)
         history.push(`/details/${createdEvent.id}`)
       }
+    }
   }
     useEffect(() => {
      
@@ -66,7 +83,7 @@ function AddListing({showModal, setShowModal}) {
       <div className={styles.container2}>
     <form  className={styles.inputForm}>
     <div className={styles.errors1}>
-      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      {errors.map(err =>( <div>{err}</div>))}
       </div>
         <h2 className={styles.h2}>Host a Spot</h2>
       <div className={styles.container3}>
