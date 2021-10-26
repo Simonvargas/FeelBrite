@@ -13,9 +13,6 @@ import Yoga from './yoga';
 import CrossFit from './crossfit';
 import OutDoor from './outdoors';
 
-
-import { SwitchTransition, CSSTransition } from "react-transition-group";
-
 function HomePage() {
 
   const dispatch = useDispatch();
@@ -117,18 +114,7 @@ function toggle() {
       {yogai ? <Yoga /> : ''}
       {crossFit ? <CrossFit /> : ''}
       {outDoors ?  <OutDoor /> : ''}
-      {/* </SwitchTransition> */}
-      {/* <div className={styles.eventsContainer}>
-        {events.map(event => 
-        <div className={styles.containerphoto}>
-        <Link to={`/details/${event.id}`}>
-          <b className={styles.eventName}>{event.name}</b>
-          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
-          </Link>
-          </div>
-          
-        )}
-        </div> */}
+   
       </div>
       <div className={styles.footer}>
       <Footer />
