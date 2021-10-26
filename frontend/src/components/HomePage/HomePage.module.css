@@ -20,23 +20,19 @@
     position: relative;
     right: 5px;
     bottom: 5px;
-    /* margin:auto; */
-    /* margin: 15px; */
+   
     object-fit: cover;
-    /* padding: 20px; */
-    /* border-radius: 30px; */
-    /* border-bottom: 1px solid #333333;
-    border-top: 1px solid #333333;
-    border-left: 1px solid #333333;
-    border-right: 1px solid #333333; */
     overflow-x: scroll;
 }
 
 .containerphoto:hover {
-    -webkit-transform: rotate(15deg) scale(1.4);
-	transform: rotate(0deg) scale(1.02);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+    
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    box-shadow: 10px 10px 5px #888888;
 }
 
 .eventsContainer {

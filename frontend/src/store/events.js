@@ -33,7 +33,6 @@ const removeEvent = (eventId) => {
   };
 
   export const Register = (payload) => async (dispatch) => {
-    console.log(payload)
    const response = await csrfFetch("/api/registration", {
      method: "POST",
      body: JSON.stringify(payload),

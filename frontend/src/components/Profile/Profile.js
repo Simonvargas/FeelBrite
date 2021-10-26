@@ -3,11 +3,10 @@ import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import SecondNavigation from '../Navigation/secondNav'
 import { csrfFetch } from '../../store/csrf';
-import ProfileWelcome from './ProfileWelcome'
 import styles from './Profile.module.css'
 import { useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session';
-import { deleteEvent, deleteRegister, unbookmark } from '../../store/events';
+import { deleteEvent} from '../../store/events';
 import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router';
 
@@ -20,7 +19,9 @@ function Profile() {
   const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams()
   const [change, setChange] = useState(true)
-  const sessionUserId = useSelector(state => state.session.user?.id);
+  const userId = useSelector(state => state.session.user?.id);
+  const [render, setRender] = useState(false)
+  const history = useHistory()
   
   
 
@@ -34,7 +35,6 @@ function Profile() {
       }
     })();
   }, []);
-  const history = useHistory()
   
   useEffect(() => {
     (async function () {
@@ -45,14 +45,13 @@ function Profile() {
       
       }
     })();
-  }, []);
+  }, [render]);
   useEffect(() => {
     (async function () {
       const res = await csrfFetch("/api/bookmark");
       if (res.ok) {
         const bookmark = await res.json();
        await setBookmark(bookmark);
-      // console.log(bookmark)
       }
     })();
   }, []);
@@ -65,15 +64,17 @@ function Profile() {
     history.push('/')
   }
 
-  async function RegisterGone(eventId) {
-    await dispatch(deleteRegister(eventId))
-    history.push('/')
-  }
-  
+  const unRegister= async (e) => {
+    const response = await csrfFetch("/api/registration", {
+      method: "DELETE",
+      body: JSON.stringify({
+        userId: userId,
+        eventId: e.target.id,
+      }),
+    });
+    setRender(!render)
+  };
   function deleteBookmark(e) {
-    
-    const val = document.querySelector('.oneBookmark')
-    console.log(val)
     // const payload = {eventId,sessionUserId }
     // await dispatch(unbookmark(eventId))
     // history.push('/')
@@ -90,62 +91,61 @@ function Profile() {
       <SecondNavigation isLoaded={isLoaded} />
       {isLoaded}
       <div className={styles.grid}>
-        <div className={styles.eventsContainer}>
-          <ProfileWelcome />
-       </div>
+       <div className={styles.h2}>Your Created Events</div>
        <div className={`${styles.eventsContainer1}`}>
-       <h2 className={styles.h2}>Your Created Events</h2>
        {events.map(event => {
          if (event.hostId === sessionUser?.id) { 
            return (
-        <div className={styles.eventsContainer2}>
+            <Link style={{textDecoration: 'none'}} to={`/details/${event.id}`}>
+            <div className={styles.eventsContainer2}>
           <div className={styles.containerphoto}>
-        <Link to={`/details/${event.id}`}>
-          <b className={styles.eventName}>{event.name}</b>
-          <img className={`${styles.fitImg}`} src={event.image} alt={event.name}></img>
-          </Link>
-          <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button>
-          </div>
-          </div>
+         
+        <b className={styles.eventName1}><img  className={styles.img1} src={event.image}></img> {event.name} | {event.location} | {event.date} </b> 
+        {/* <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button> */}
+        </div>
+              </div>
+              </Link>
+
           )
           }
 })}
        </div>
-       <div className={`${styles.eventsContainer3} `}>
-       <h2 className={styles.h2}>Registered Events</h2>
+       <div className={styles.h2}>Registered Events</div>
+       <div className={`${styles.eventsContainer1} `}>
        {events.map(event => {
         for (let i = 0; i < registers.length; i++) {
           if (event.id === registers[i].eventId && sessionUser?.id === registers[i].userId) {
             return (
               <div className={styles.eventsContainer2}>
+              <Link style={{textDecoration: 'none'}} to={`/details/${event.id}`}>
             <div className={styles.containerphoto}>
-              <Link to={`/details/${event.id}`}>
-                <b className={styles.eventName}>{event.name}</b>
-                <img className={styles.fitImg}src={event.image} alt={event.name}></img>
-                </Link>
-                {/* <button className={styles.deleteBtn} value={event.id} onClick={() => Delete(event.id)}>Delete</button> */}
-                </div>
+           
+          <b className={styles.eventName1}><img  className={styles.img1} src={event.image}></img> {event.name} | {event.location} | {event.date} </b> 
+          </div>
+          </Link>
+          {/* <button id={registers[i].id} className={styles.deleteBtn} onClick={unRegister}> delete</button> */}
+
                 </div>
             )
           
         } 
 }})}
 </div>
- <div className={`${styles.eventsContainer4}`}>
-       <h2 className={styles.h2}>Bookmarks</h2>
+<div className={styles.h2}>Bookmarks</div>
+
+ <div className={`${styles.eventsContainer1}`}>
        {events.map(event => {
         for (let i = 0; i < bookmarks.length; i++) {
           if (event.id === bookmarks[i].eventId && sessionUser?.id === bookmarks[i].userId) {
             return (
+              <Link style={{textDecoration: 'none'}} to={`/details/${event.id}`}>
           <div className={styles.eventsContainer2}>
             <div className={styles.containerphoto}>
-              <Link to={`/details/${event.id}`}>
-                <b className={styles.eventName}>{event.name}</b>
-                <img className={styles.fitImg}src={event.image} alt={event.name}></img>
+          <b className={styles.eventName1}><img  className={styles.img1} src={event.image}></img> {event.name} | {event.location} | {event.date} </b> 
+          {/* <button className={styles.deleteBtn} onClick={() => Delete(event.id)}> delete</button> */}
+          </div>
+                </div>
                 </Link>
-                {/* <button className={`${styles.deleteBtn} ${styles.oneBookmark}`} value='1' onClick={deleteBookmark}> delete</button> */}
-                </div>
-                </div>
             )
           
         } 

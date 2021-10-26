@@ -1,54 +1,25 @@
 
-.fitImg {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border-radius: 50px;
-    border-bottom: 1px solid #333333;
-    border-top: 1px solid #333333;
-    border-left: 1px solid #333333;
-    border-right: 1px solid #333333;
-    
- 
-}
-
-.fitImg:hover {
-    -webkit-transform: rotate(15deg) scale(1.4);
-	transform: rotate(0deg) scale(1.05);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-
-.eventsContainer2 {
-overflow-y: auto;
-white-space: nowrap;
-text-align: center;
-display: inline-block;
-justify-content: center;
-align-items: center;
-width: 30%;
-margin-left: 20px;
-
-}
-
 .h2 {
     height: 30px;
-    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
     width: 100%;
     position: relative;
-    bottom: 21px;
-    /* right: 40px; */
     border-bottom: 2px solid #333333;
-    /* border-top: 1px solid #333333; */
-    /* background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626); */
-    background-color: white;;
+    background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
 }
 
+.eventName1 {
+    color: black;
+    
+}
 
-
+.img1 {
+    width: 5%;
+    height: 45px;
+   
+}
 
 .deleteBtn {
     color: #494949 !important;
@@ -60,6 +31,8 @@ margin-left: 20px;
     position: relative;
     top: 10px;
     border-radius: 6px;
+    float: right;
+    display: inline;
 }
 .deleteBtn:hover {
     color: #ffffff !important;
@@ -69,41 +42,36 @@ margin-left: 20px;
 }
 
 .grid {
-    display: grid;
-    /* grid-gap: 10px; */
-    grid-template-columns: 90px 360px 300px ;
+    position: relative;
+    top: 10px;
+    width: 70%;
+    margin: auto;
     background-color: #fff;
     color: #444; 
-    
-    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.containerphoto {
-    width: 100%;
-    height: 280px;
-    position: relative;
-    /* bottom: 5px; */
-    
-}
 
 .eventsContainer1 {
-    grid-column-start: 3;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    border-left: 2px solid #333333;
-    border-top: 2px solid #333333;
-    background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+    width: 100%;
     overflow-y:auto;
-    height: 350px;
-    
+    height: 200px;
 }
 
+.deleteBtn {
+    float:right;
+}
+
+.eventsContainer2:hover {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    box-shadow: 10px 10px 5px #888888;
+}
 .eventsContainer3 {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 3;
-    grid-column-end: 6;
+ 
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
@@ -114,10 +82,7 @@ margin-left: 20px;
 }
 
 .eventsContainer4 {
-    grid-column-start: 3;
-    grid-column-end: 6;
-    grid-row-start: 3;
-    grid-row-end: 4;
+
     border-left: 2px solid #333333;
     border-top: 2px solid #333333;
     background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
@@ -126,23 +91,14 @@ margin-left: 20px;
     
 }
 
-.eventsContainer {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-    0 10px 10px rgba(0,0,0,0.22);
-    width: 250px;
-    height: 350px;
-    position: relative;
-    top: 40px;
-    left: 90px;
-    border-radius: 10px;
-    text-align: center;
-    margin: auto;
-}
 
 
 .eventsContainer2 {
-    position: relative;
-    bottom: 20px;
+    overflow-y:auto;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    border-top: 2px solid lightgray
 }
 
 .profileImageContainer .profileImage {
@@ -151,9 +107,6 @@ margin-left: 20px;
 
 }
 
-.eventName {
-    color:white;
-    position: relative;
-    bottom: 2px;
+.containerphoto{
+    width: 100%;
 }
-
