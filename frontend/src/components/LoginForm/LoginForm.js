@@ -19,11 +19,11 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    history.push('/')
+   
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) setErrors(['please fill out correct information']);
       }
     );
   };
@@ -34,7 +34,7 @@ function LoginForm() {
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data) setErrors(data.errors);
       });
   }
 
@@ -44,7 +44,7 @@ function LoginForm() {
           <form onSubmit={handleSubmit} className={styles.loginForm}>
               <ul>
               {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
+                <li className={styles.errors} key={idx}>{error}</li>
               ))}
             </ul>
             <div className={styles.loginText}>

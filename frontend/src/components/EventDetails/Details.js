@@ -179,6 +179,8 @@ const Details = () => {
                 <img className={styles.photo} src={event.image}></img>
                 <div className={styles.bottomContainer}>
                     <div className={styles.left}>
+                    <p style={{ color: 'gray' }}>{event.location} | Date: {event.date}</p>
+
                     <div className={styles.desc}>{event.details}</div>
                     </div>
 

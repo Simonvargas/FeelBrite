@@ -2,27 +2,23 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 350px;
-  height: 270px;
-  padding: 5px;
+  height: 300px;
+  padding: 3px;
   margin: 10px;
   Font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+  border-radius: 5px;;
 
 }
 
 .little {
-    background-color: #262626;
+    width: 100%;
+    height: 110%;
 }
 
 .fitImg {
-    width: 360px;
-    height: 200px;
-    display: block;
-    position: relative;
-    right: 5px;
-    bottom: 5px;
-   
+    width: 100%;
+    height: 275px;
     object-fit: cover;
-    overflow-x: scroll;
 }
 
 .containerphoto:hover {
@@ -42,12 +38,7 @@
     text-align: center;
     justify-content: center;
     top: 10px;
-    /* overflow-x: scroll;
-    overflow-y:hidden;
-    width: 100%;
-    white-space: nowrap;
-    height: 500px; */
-    /* background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626); */
+ 
 }
 
 .footer {
@@ -66,19 +57,8 @@
 
 
 
- /* .eventsContainer .containerphoto {
-    width: 24.5%;
-    float: none;
-    height: 90%;
-    margin: 0 0.25%;
-    display: inline-block;
-    zoom: 1;
 
-}
 
-.containerphoto {
-    text-align: center;
-} */
 html, body {
     margin:0px;
   }
@@ -114,4 +94,7 @@ html, body {
     
 }
 
+.eventName {
+    font-size: 20px;
+}
 

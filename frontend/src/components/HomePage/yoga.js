@@ -46,10 +46,8 @@ function Yoga() {
         <Link to={`/details/${event.id}`} style={{ textDecoration: 'none' }}>
           <div>
            <div className={styles.litte}>
-          {/* <b className={styles.eventName}>{event.name}</b> */}
-          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
           <b className={styles.eventName}>{event.name}</b>
-          <p className={styles.eventName}>{event.location}</p>
+          <img className={styles.fitImg}src={event.image} alt={event.name}></img>
           </div>
           </div>
           </Link>

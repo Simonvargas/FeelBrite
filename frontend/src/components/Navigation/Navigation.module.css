@@ -4,6 +4,14 @@
     margin-bottom: 10px
 }
 
+.links:hover {
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); 
+}
+
+
+
+
 .signBtn {
     background-color: #f2cf43;
     background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
