@@ -1,0 +1,134 @@
+import SecondNavigation from '../Navigation/secondNav'
+import { useState, useEffect } from 'react'
+import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
+import { useHistory } from 'react-router';
+import { addEvent } from '../../store/events';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import styles from './AddListing.module.css'
+
+function AddListing({showModal, setShowModal}) {
+  const [name, setName] = useState('')
+  const [image, setImage] = useState('')
+  const [date, setDate] = useState('')
+  const [location, setLocation] = useState('')
+  const [details, setDetails] = useState('')
+  const [categoryId, setCategory] = useState(1)
+  const dispatch = useDispatch();
+  const history = useHistory()
+  const { id } = useParams() 
+  const sessionUser = useSelector(state => state.session.user);
+
+  const [errors, setErrors] = useState([])
+
+  
+  const hostId = sessionUser?.id
+
+  const handleSubmit = async (e) => {
+      e.preventDefault()
+
+      const payload = {
+          hostId,
+          name,
+          image,
+          details,
+          date,
+          location,
+          categoryId
+      };
+      console.log(payload)
+      console.log(payload)
+      let createdEvent = await dispatch(addEvent(payload))
+      if (createdEvent) {
+        history.push(`/details/${createdEvent.id}`)
+      }
+  }
+    useEffect(() => {
+     
+      const data = []
+      if (showModal === false) {
+        setName('')
+        setLocation('')
+        setImage('')
+        setDate('')
+        setDetails('')
+        const inputfile = document.querySelector('.file')
+        inputfile.value = ''
+   }}, [showModal])
+  
+  
+  return  (
+      
+  <div className={styles.container}>
+    
+     
+      <div className={styles.container2}>
+    <form  className={styles.inputForm}>
+    <div className={styles.errors1}>
+      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      </div>
+        <h2 className={styles.h2}>Host a Spot</h2>
+      <div className={styles.container3}>
+   
+      <input
+      className={styles.input}
+      type='hidden'
+      value={hostId}
+      />
+
+      <input
+      placeholder='Title'
+      className={styles.input}
+      type='text'
+      value={name}
+      onChange={(e) => setName(e.target.value)}/>
+
+      <input 
+      placeholder='Address'
+      className={styles.input}
+      type='text'
+      value={location}
+      onChange={(e) => setLocation(e.target.value)}/>
+
+    <input
+      placeholder='Date'
+      className={styles.input}
+      type='text'
+      value={date}
+      onChange={(e) => setDate(e.target.value)}/>
+
+    <input 
+      placeholder='Image Url'
+      className={styles.input}
+      type='text'
+      value={image}
+      onChange={(e) => setImage(e.target.value)}/>
+   
+     <textarea
+      placeholder='description'
+      className={styles.input}
+      type='text'
+      value={details}
+      onChange={(e) => setDetails(e.target.value)}/>
+
+    <label> 
+        <select className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
+          <option value='1'>Cycling</option>
+          <option value='2'>Yoga</option>
+          <option value='3'>Crossfit</option>
+          <option value='4'>Outdoors</option>
+          {/* <option value='5'>nice</option> */}
+        </select>
+      </label>
+      
+      <button  onClick={handleSubmit} className={styles.btn} type='submit'>Host your Spot</button>
+      </div>
+      </form>
+      </div>
+      </div>
+   
+  );
+}
+
+export default AddListing;

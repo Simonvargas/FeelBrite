@@ -67,7 +67,17 @@
     display: block;
   }
 
-
+  .rodal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0px !important;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+}
 
 
 .dropdownContent a:hover {background-color: #ddd;}
@@ -107,14 +117,15 @@ a { color: inherit; }
     justify-content: center;
     text-decoration: none;
     position:relative;
-    color: white;
+    background-color: ;
 	text-transform: uppercase;
 	text-decoration: none;
 	transition: all 0.4s ease 0s;
     border-radius: 6px;
     left: 492px;
-    
-    
+    background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+    color: white;
+    border: none;
 }
 
 .createBtn:hover {

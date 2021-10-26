@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import styles from'./Navigation.module.css';
 
+import Rodal from 'rodal';
+import AddListing from '../addEvent/AddListing';
+import 'rodal/lib/rodal.css';
+
+
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+  const [showModal, setShowModal] = useState(false)
+
+  function show() {
+    setShowModal(true)
+  }
   
+  function hide() {
+    setShowModal(false)
+  }
+
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -37,9 +52,17 @@ function Navigation({ isLoaded }){
         <img alt='logo' src='https://i.imgur.com/HeZZnbz.png' className={styles.logo}></img>
         </Link> 
 
-      {sessionUser ? <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
+      {sessionUser ? <button  className={styles.createBtn} onClick={show}>Create Event</button>: ''}
        {sessionUser ?  
+      //  <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink>
        <>
+          <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} animation='flip' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <AddListing />
+            </div>
+          </Rodal>
+
+
        <div className={styles.logoText}>
           <b>FeelBrite <i class="fas fa-bolt"></i></b>
           <h1>Time to choose your next battle!</h1>
@@ -51,6 +74,8 @@ function Navigation({ isLoaded }){
         </>
         :
         <>
+
+
         <div className={styles.logoText}>
           <b>FeelBrite</b>
           <h1>The place to start your fitness journey</h1>

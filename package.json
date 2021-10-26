@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Simonvargas/react-project/issues"
   },
-  "homepage": "https://github.com/Simonvargas/react-project#readme"
+  "homepage": "https://github.com/Simonvargas/react-project#readme",
+  "dependencies": {
+    "rodal": "^1.8.1"
+  }
 }
