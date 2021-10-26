@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { editEvent } from '../../store/events';
 import { useParams } from 'react-router-dom'
 
-function EventForm({setShowForm, event}) {
+function EventForm({showModal, setShowModal, event}) {
     const [name, setName] = useState(event.name)
     const [image, setImage] = useState(event.image)
     const [date, setDate] = useState(event.date)
@@ -32,10 +32,10 @@ function EventForm({setShowForm, event}) {
             date,
             location,
         };
-        // console.log(payload)
+        
         let createdEvent = dispatch(editEvent(payload))
         if (createdEvent) {
-        setShowForm(false)
+        setShowModal(false)
         }
     }
   return (
@@ -93,7 +93,7 @@ function EventForm({setShowForm, event}) {
       onChange={(e) => setDetails(e.target.value)}/>
       </label>
       <button className={styles.btn}  type='submit'>Submit</button>
-      <button className={styles.btn} onClick={()=> setShowForm(false)} type='submit'>Cancel</button>
+      <button className={styles.btn} onClick={()=> setShowModal(false)} type='submit'>Cancel</button>
       </div>
       </form>
       </div>

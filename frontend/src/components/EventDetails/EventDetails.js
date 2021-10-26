@@ -23,15 +23,8 @@ function EventDetails(){
   const sessionUserId = useSelector(state => state.session.user);
   const userId = sessionUserId?.id
 
-  useEffect(()=>{
-    localStorage.getItem('bookmark')
-  },[]);
+
   
-  useEffect(()=>{
-    localStorage.setItem('bookmark', bookmark)
-},[bookmark]);
-
-
 
 
   useEffect(() => {
@@ -92,9 +85,7 @@ function EventDetails(){
         const newEvent = await res.json();
         setEvent(newEvent);
         setBookmark(newEvent?.Bookmarks?.find((fav) => +fav.userId === +userId));
-        console.log(bookmark)
         setRegister(newEvent?.Registrations?.find((fav) => +fav.userId === +userId))
-        console.log(register)
       }
     })();
   }, []);

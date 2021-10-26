@@ -6,6 +6,8 @@ import EventDetails from './components/EventDetails/EventDetails';
 import ProtectedRoute from './components/auth/ProtectRoute';
 import { useSelector } from 'react-redux';
 import Login from './components/LoginForm/Login';
+
+import Details from './components/EventDetails/Details';
 function App() {
   const user = useSelector(state => state.session.user)
 
@@ -26,15 +28,14 @@ function App() {
         <SignupFormPage />
       </Route>
       
-     
 
       <ProtectedRoute path='/profile'>
         <Profile />
       </ProtectedRoute>
 
-      <ProtectedRoute path='/details/:id'>
-        <EventDetails />
-      </ProtectedRoute>
+      <Route path='/details/:id'>
+        <Details />
+      </Route>
 
     </Switch>
     </>

@@ -1,0 +1,135 @@
+.container {
+    width: 60%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: auto;
+    Font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+
+}
+
+.photo {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    height: 400px;
+     
+}
+
+.desc {
+    /* width: 100%; */
+    border-bottom: 1px solid lightgray;;
+    border-top: 1px solid lightgray;
+    padding: 20px;
+    margin-top: 10px;
+    
+}
+
+.bottomContainer {
+    width: 100%;
+    /* margin-top: 10px; */
+}
+
+.left {
+    float: left;
+    width: 55%;
+}
+
+.right {
+    position: relative;
+    top: 15px;
+    right: -10px;
+    float: right;
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.btn1 {
+    border-radius: 4px;
+    border: none;
+    border:greenyellow;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 9px 45px;
+    margin: 5px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 315px;
+    position: relative;
+    top: 5px;
+    text-align: center;
+}
+
+.btn1:hover {
+    color: #ffffff !important;
+    background-color: #eb4511;
+background-image: linear-gradient(315deg, #eb4511 0%, #b02e0c 74%);
+
+  transition: all 0.4s ease 0s;  
+}
+
+.input {
+    /* margin-top: 20px; */
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.3);
+    margin-right: 2px;
+    padding-top: 10px;
+    padding-left: 7px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.firstContent {
+    display: flex;
+    justify-content: space-between;
+}
+.btn2 {
+    border-radius: 4px;
+    border: none;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 110px;
+    height: 35px;
+    position: relative;
+    color:white;
+    top: 50px;
+   
+}
+
+.pricing {
+    text-align: center;
+}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.listingPrice {
+    float: left;
+}
+
+.rodal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0px !important;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+}

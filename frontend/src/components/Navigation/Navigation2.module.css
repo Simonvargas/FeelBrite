@@ -89,6 +89,7 @@ a { color: inherit; }
     left: -25px;
 }
 .navBar {
+    Font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
 
     height: 50px;   
     width: 100%;
