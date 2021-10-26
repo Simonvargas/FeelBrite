@@ -41,6 +41,7 @@ function AddListing({showModal, setShowModal}) {
       console.log(payload)
       let createdEvent = await dispatch(addEvent(payload))
       if (createdEvent) {
+        setShowModal(false)
         history.push(`/details/${createdEvent.id}`)
       }
   }
@@ -53,8 +54,7 @@ function AddListing({showModal, setShowModal}) {
         setImage('')
         setDate('')
         setDetails('')
-        const inputfile = document.querySelector('.file')
-        inputfile.value = ''
+       
    }}, [showModal])
   
   

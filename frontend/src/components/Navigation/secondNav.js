@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import styles from'./Navigation2.module.css';
 
+import Rodal from 'rodal';
+import AddListing from '../addEvent/AddListing';
+import 'rodal/lib/rodal.css';
+
+
 function SecondNavigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+
+  const [showModal, setShowModal] = useState(false)
+
+  function show() {
+    setShowModal(true)
+  }
+  
+  function hide() {
+    setShowModal(false)
+  }
   
 
   let sessionLinks;
@@ -37,9 +52,13 @@ function SecondNavigation({ isLoaded }){
         <img alt='logo' src='https://i.imgur.com/HeZZnbz.png' className={styles.logo}></img>
         </Link> 
 
-      {sessionUser ? <NavLink to='/add'className={styles.createBtn}>Create Event</NavLink> : ''}
+        {sessionUser ? <button  className={styles.createBtn} onClick={show}>Create Event</button>: ''}
        
-
+      <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} animation='flip' visible={showModal} onClose={hide}>
+            <div className={styles.rodal}>
+              <AddListing setShowModal={setShowModal} showModal={showModal}/>
+            </div>
+          </Rodal>
         {/* <NavLink to='/add'><button className={styles.createBtn}>Create Event</button></NavLink> */}
 
         {isLoaded && sessionLinks}

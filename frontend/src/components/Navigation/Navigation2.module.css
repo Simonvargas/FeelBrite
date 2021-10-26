@@ -113,15 +113,18 @@ a { color: inherit; }
 	text-decoration: none;
 	transition: all 0.4s ease 0s;
     border-radius: 6px;
+    border: none;
     left: 20px;
+    background: radial-gradient(900px 900px at top center,#5e5e5e,#2d3334,#262626);
+
     
 }
 
+
+
 .createBtn:hover {
-    color: #ffffff !important;
-	background: #f6b93b;
-	border-color: #f6b93b !important;
-	transition: all 0.4s ease 0s;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
 }
 
 .links {
@@ -132,5 +135,17 @@ a { color: inherit; }
 .loginContent {
     position:relative;
     top: 10px;
+}
+
+.rodal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0px !important;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
 }
 

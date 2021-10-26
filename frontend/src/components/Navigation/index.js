@@ -58,7 +58,7 @@ function Navigation({ isLoaded }){
        <>
           <Rodal closeOnEsc={true} clasName={styles.ro} showCloseButton={false} animation='flip' visible={showModal} onClose={hide}>
             <div className={styles.rodal}>
-              <AddListing />
+              <AddListing  setShowModal={setShowModal} showModal={showModal}/>
             </div>
           </Rodal>
 

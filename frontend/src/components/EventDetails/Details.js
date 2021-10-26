@@ -23,6 +23,8 @@ const Details = () => {
     
     const sessionUserId = useSelector(state => state.session.user);
     const userId = sessionUserId?.id
+
+    const [errors, setErrors] = useState([])
   
     const [showModal, setShowModal] = useState(false)
 
@@ -33,7 +35,11 @@ const Details = () => {
     function hide() {
         setShowModal(false)
     }
-  
+    
+    async function Delete() {
+      await dispatch(deleteEvent(id))
+      history.push('/')
+    }
   
   
     useEffect(() => {
@@ -51,15 +57,29 @@ const Details = () => {
    
      async function Registers() {
       const eventId = parseInt(id)
+      const data = []
       const payload = {
         userId,
         eventId
       }
+      if (userId !== eventId) {
+          data.push('You cannot register to your own event')
+      }
+      setErrors(data)
+
+      if (data.length === 0) {
       await dispatch(Register(payload))
       history.push('/profile')
+      }
     }
   
     const addToRegister = async () => {
+      const data = []
+      if (userId === event.hostId) {
+        data.push('You cannot register to your own event')
+    }
+    setErrors(data)
+    if (data.length === 0) {
       const response = await csrfFetch("/api/registration", {
         method: "POST",
         body: JSON.stringify({
@@ -69,6 +89,8 @@ const Details = () => {
       });
       const data = await response.json();
       setRegister(data);
+      window.alert('Your booking has been confirmed')
+    }
     };
   
     const unRegister= async () => {
@@ -100,6 +122,12 @@ const Details = () => {
     }, []);
   
     const addToBookmark = async () => {
+      const data = []
+      if (userId === event.hostId) {
+        data.push('You cannot bookmark to your own event')
+    }
+    setErrors(data)
+    if (data.length === 0) {
       const response = await csrfFetch("/api/bookmark", {
         method: "POST",
         body: JSON.stringify({
@@ -109,7 +137,7 @@ const Details = () => {
       });
       const data = await response.json();
       setBookmark(data);
-      console.log(data);
+    }
     };
   
     const unbookmark = async () => {
@@ -130,11 +158,12 @@ const Details = () => {
 
     return isLoaded && (
         <div>
-            <SecondNavigation />
+            <SecondNavigation isLoaded={isLoaded} />
+      {isLoaded}
             <div className={styles.container}>
                <div className={styles.firstContent} > <h1>{event.name}</h1>
                {userId == event.hostId? <div>
-                   <button  className={styles.btn2}>Delete Listing</button>
+                   <button  onClick={Delete} className={styles.btn2}>Delete Listing</button>
                    <button onClick={show} className={styles.btn2}>Update</button>
                </div> : ''}
 
@@ -167,6 +196,9 @@ const Details = () => {
           ) : (
             <button className={styles.btn1} onClick={() => addToBookmark()}>Bookmark</button>
           )}
+          <div className={styles.errors1}>
+      {errors.map(err =>( <ul><li>{err}</li></ul>))}
+      </div>
                 </div>    
       
                     

@@ -39,8 +39,8 @@
 .btn {
     border-radius: 4px;
     border: none;
-    background-color: #000000;
-    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -54,10 +54,8 @@
 }
 
 .btn:hover {
-    color: #ffffff !important;
-    background-color: #fce043;
-    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
-    transition: all 0.4s ease 0s;   
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 
 .p{

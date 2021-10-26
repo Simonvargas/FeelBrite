@@ -21,10 +21,7 @@ function Profile() {
   const { id } = useParams()
   const [change, setChange] = useState(true)
   const sessionUserId = useSelector(state => state.session.user?.id);
-  // const[showForm, setShowForm] = useState(false)
-  // function click() {
-  //   setShowForm(true)
-  //   }
+  
   
 
   useEffect(() => {

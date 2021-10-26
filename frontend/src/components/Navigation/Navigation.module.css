@@ -130,10 +130,8 @@ a { color: inherit; }
 }
 
 .createBtn:hover {
-    color: #ffffff !important;
-	background: #f6b93b;
-	border-color: #f6b93b !important;
-	transition: all 0.4s ease 0s;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
 }
 
 .links {

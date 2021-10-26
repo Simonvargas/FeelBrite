@@ -29,9 +29,9 @@ function App() {
       </Route>
       
 
-      <ProtectedRoute path='/profile'>
+      <Route path='/profile'>
         <Profile />
-      </ProtectedRoute>
+      </Route>
 
       <Route path='/details/:id'>
         <Details />
