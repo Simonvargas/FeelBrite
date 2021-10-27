@@ -8,8 +8,7 @@ const ProtectedRoute = props => {
   
   return (
     <Route {...props}>
-      {(user)? <Redirect to='/' exact={true}/> : <LoginForm />}
-    </Route>
+ {(user)? props.children  : <Redirect to='/login' />}    </Route>
   )
 };
 

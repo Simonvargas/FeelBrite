@@ -29,13 +29,13 @@ function App() {
       </Route>
       
 
-      <Route path='/profile'>
+      <ProtectedRoute path='/profile' exact={true}>
         <Profile />
-      </Route>
+      </ProtectedRoute>
 
-      <Route path='/details/:id'>
+      <ProtectedRoute path='/details/:id' exact={true}>
         <Details />
-      </Route>
+      </ProtectedRoute>
 
     </Switch>
     </>
