@@ -85,7 +85,7 @@ function AddListing({showModal, setShowModal}) {
     <div className={styles.errors1}>
       {errors.map(err =>( <div>{err}</div>))}
       </div>
-        <h2 className={styles.h2}>Host a Spot</h2>
+        <h2 className={styles.h2}>Create Event</h2>
       <div className={styles.container3}>
    
       <input
@@ -130,7 +130,7 @@ function AddListing({showModal, setShowModal}) {
       onChange={(e) => setDetails(e.target.value)}/>
 
     <label> 
-        <select className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
+        <select id={styles.select} className={`${styles.input} ${styles.select}`} onChange={(e) => setCategory(+e.target.value)} defaultValue={categoryId}>
           <option value='1'>Cycling</option>
           <option value='2'>Yoga</option>
           <option value='3'>Crossfit</option>
@@ -139,7 +139,7 @@ function AddListing({showModal, setShowModal}) {
         </select>
       </label>
       
-      <button  onClick={handleSubmit} className={styles.btn} type='submit'>Host your Spot</button>
+      <button  onClick={handleSubmit} className={styles.btn} type='submit'>Create Event</button>
       </div>
       </form>
       </div>
