@@ -163,7 +163,7 @@ const Details = () => {
             <div className={styles.container}>
                <div className={styles.firstContent} > <h1>{event.name}</h1>
                {userId == event.hostId? <div>
-                   <button  onClick={Delete} className={styles.btn2}>Delete Listing</button>
+                   <button  onClick={Delete} className={styles.btn2}>Delete Event</button>
                    <button onClick={show} className={styles.btn2}>Update</button>
                </div> : ''}
 
