@@ -1,0 +1,53 @@
+.body {
+width: 100%;
+height: 800px;
+
+}
+
+
+.pic2 {
+    width: 100%;
+    height: 50%
+}
+
+
+.photo3 {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.pic3 {
+    position: relative;
+    top: 380px;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+.h2 {
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 200px;
+    font-family:Georgia,serif;
+    color: black;
+	font-variant: small-caps; text-transform: none; font-weight: 700; margin-bottom: 0;
+ 
+}
+
+.newImg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: 50px;
+}
+
+.white {
+    background-color: white;
+    position: relative;
+    bottom: 110px;
+    height: 100px;
+}
