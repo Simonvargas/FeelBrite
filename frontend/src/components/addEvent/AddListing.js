@@ -33,7 +33,7 @@ function AddListing({showModal, setShowModal}) {
         data.push('Please include a name for your event')
       }
       if (image === '') {
-        data.push('Please include an image url')
+        data.push('Please include an image')
       }
       if (details === '') {
         data.push('Please write a description for your event')
@@ -95,6 +95,8 @@ function AddListing({showModal, setShowModal}) {
         setImage('')
         setDate('')
         setDetails('')
+        const inputfile = document.querySelector('.file')
+        inputfile.value = ''
        
    }}, [showModal])
   
@@ -113,7 +115,7 @@ function AddListing({showModal, setShowModal}) {
         <h2 className={styles.h2}>Create Event</h2>
       <div className={styles.container3}>
         <label>Upload your event's image</label>
-      <input type='file' accept="image/png, image/jpeg" onChange={updateFile}></input>
+      <input className='file'type='file' accept="image/png, image/jpeg, image/jpg" onChange={updateFile}></input>
       <input
       className={styles.input}
       type='hidden'
@@ -144,7 +146,7 @@ function AddListing({showModal, setShowModal}) {
     <input 
       placeholder='Image Url'
       className={styles.input}
-      type='text'
+      type='hidden'
       value={image}
       onChange={(e) => setImage(e.target.value)}/>
    
