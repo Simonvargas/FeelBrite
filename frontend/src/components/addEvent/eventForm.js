@@ -35,7 +35,7 @@ function EventForm({showModal, setShowModal, event}) {
         
         let createdEvent = dispatch(editEvent(payload))
         if (createdEvent) {
-        setShowModal(false)
+        setShowModal(!showModal)
         }
     }
   return (
