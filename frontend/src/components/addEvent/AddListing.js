@@ -64,12 +64,11 @@ function AddListing({showModal, setShowModal}) {
   }
 
   const updateFile = async (e) => {
-    e.preventDefault()
     const file = e.target.files[0];
-    console.log('files', file)
+    
 
   // get secure url from our server
-  const { url } = await fetch("/s3Url").then(res => res.json())
+  const { url } = await fetch("/api/events/s3Url").then(res => res.json())
   console.log(url)
 
   // post the image direclty to the s3 bucket

@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Event, User, Bookmark, Registration, Category } = require('../../db/models');
+const { generateUploadURL } = require('../../awsS3');
 
 const router = express.Router();
 
@@ -21,6 +22,11 @@ router.post('/',asyncHandler(async function (req, res) {
     })
   );
 
+router.get('/s3Url', async (req, res) => {
+    const url = await generateUploadURL()
+    res.send({url})
+  })
+  
 
 router.get('/:id', asyncHandler(async function (req, res) {
   const id = req.params.id
