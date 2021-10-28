@@ -149,7 +149,7 @@ function AddListing({showModal, setShowModal}) {
     <input 
       placeholder='Image Url'
       className={styles.input}
-      type='hidden'
+      type='text'
       value={image}
       onChange={(e) => setImage(e.target.value)}/>
    
