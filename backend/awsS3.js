@@ -1,10 +1,10 @@
-// import dotenv from 'dotenv'
+const dotenv = require('dotenv')
 const aws = require('aws-sdk')
 const crypto =  require('crypto')
 const { promisify } = require("util")
 const randomBytes = promisify(crypto.randomBytes)
 
-// dotenv.config()
+dotenv.config()
 
 const region = "us-east-1"
 const bucketName = "heirsbnb"

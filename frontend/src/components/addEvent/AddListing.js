@@ -64,8 +64,9 @@ function AddListing({showModal, setShowModal}) {
   }
 
   const updateFile = async (e) => {
+    e.preventDefault()
     const file = e.target.files[0];
-    // const file = imageInput.files[0]
+    console.log('files', file)
 
   // get secure url from our server
   const { url } = await fetch("/s3Url").then(res => res.json())
@@ -82,6 +83,7 @@ function AddListing({showModal, setShowModal}) {
 
   const imageUrl = url.split('?')[0]
   setImage(imageUrl)
+  console.log('imageUrl', imageUrl)
 
   };
 
