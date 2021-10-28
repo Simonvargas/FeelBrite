@@ -20,16 +20,15 @@ const removeEvent = (eventId) => {
 
 
  export const addEvent = (payload) => async (dispatch) => {
-     console.log(payload)
+ 
+
     const response = await csrfFetch("/api/events", {
       method: "POST",
       body: JSON.stringify(payload),
     });
-    if (response.ok) {
     const newEvent = await response.json();
     dispatch(addOne(newEvent))
     return newEvent;
-    }
   };
 
   export const Register = (payload) => async (dispatch) => {

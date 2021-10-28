@@ -10,7 +10,7 @@ import styles from './AddListing.module.css'
 
 function AddListing({showModal, setShowModal}) {
   const [name, setName] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState(null)
   const [date, setDate] = useState('')
   const [location, setLocation] = useState('')
   const [details, setDetails] = useState('')
@@ -55,13 +55,42 @@ function AddListing({showModal, setShowModal}) {
           categoryId
       };
       if (data.length === 0) {
-      let createdEvent = await dispatch(addEvent(payload))
+      let createdEvent = await dispatch(addEvent({ hostId,
+        name,
+        image,
+        details,
+        date,
+        location,
+        categoryId}))
       if (createdEvent) {
         setShowModal(false)
         history.push(`/details/${createdEvent.id}`)
       }
     }
   }
+
+  const updateFile = async (e) => {
+    const file = e.target.files[0];
+    // const file = imageInput.files[0]
+
+  // get secure url from our server
+  const { url } = await fetch("/s3Url").then(res => res.json())
+  console.log(url)
+
+  // post the image direclty to the s3 bucket
+  await fetch(url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "multipart/form-data"
+    },
+    body: file
+  })
+
+  const imageUrl = url.split('?')[0]
+  setImage(imageUrl)
+
+  };
+
     useEffect(() => {
      
       const data = []
@@ -73,6 +102,7 @@ function AddListing({showModal, setShowModal}) {
         setDetails('')
        
    }}, [showModal])
+  
   
   
   return  (
@@ -87,7 +117,8 @@ function AddListing({showModal, setShowModal}) {
       </div>
         <h2 className={styles.h2}>Create Event</h2>
       <div className={styles.container3}>
-   
+        <label>Upload your event's image</label>
+      <input type='file' onChange={updateFile}></input>
       <input
       className={styles.input}
       type='hidden'
@@ -118,7 +149,7 @@ function AddListing({showModal, setShowModal}) {
     <input 
       placeholder='Image Url'
       className={styles.input}
-      type='text'
+      type='hidden'
       value={image}
       onChange={(e) => setImage(e.target.value)}/>
    

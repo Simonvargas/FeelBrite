@@ -5,6 +5,7 @@ const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes');
+const { generateUploadURL } = require('./awsS3');
 
 const { environment } = require('./config');
 const isProduction = environment === 'production';
@@ -13,6 +14,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 if (!isProduction) {
@@ -35,6 +37,11 @@ if (!isProduction) {
   );
 
 app.use(routes); 
+
+app.get('/s3Url', async (req, res) => {
+  const url = await generateUploadURL()
+  res.send({url})
+})
 
 
 app.use((_req, _res, next) => {
