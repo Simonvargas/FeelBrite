@@ -97,16 +97,7 @@ export const deleteEvent = (eventId) => async (dispatch) => {
     dispatch(removeEvent());
     return response;
   };
-//  export const unbookmark = async () => {
-//     const response = await csrfFetch("/api/bookmark", {
-//       method: "DELETE",
-//       body: JSON.stringify({
-//         userId: sessionUserId,
-//         eventId: id,
-//       }),
-//     });
-//     dispatch(removeEvent());
-//   };
+
  
   
 const initialState = { list: []};
@@ -114,20 +105,11 @@ const initialState = { list: []};
   
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
-      case ADD_ONE: {
-   if (!state[action.payload.id]) {
-       const newState = {...state, [action.payload.id]: action.payload};
-       // takes care of adding
-       const eventList = newState.list.map(id => newState[id]);
-       eventList.push(action.payload);
-       newState.list = eventList
-        return newState;
-   } // takes care of updating
-   return {
-       ...state, [action.payload.id]: { ...state[action.payload.id], ...action.payload,
-   }
-  };  
-} 
+    case ADD_ONE:
+            return {
+                ...state,
+                [action.payload.id]: action.payload
+            }
     case REMOVE_EVENT:
       const newState = { ...state };
       delete newState[action.payload];

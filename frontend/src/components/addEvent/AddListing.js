@@ -10,7 +10,7 @@ import styles from './AddListing.module.css'
 
 function AddListing({showModal, setShowModal}) {
   const [name, setName] = useState('')
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState('')
   const [date, setDate] = useState('')
   const [location, setLocation] = useState('')
   const [details, setDetails] = useState('')
@@ -55,13 +55,7 @@ function AddListing({showModal, setShowModal}) {
           categoryId
       };
       if (data.length === 0) {
-      let createdEvent = await dispatch(addEvent({ hostId,
-        name,
-        image,
-        details,
-        date,
-        location,
-        categoryId}))
+      let createdEvent = await dispatch(addEvent(payload))
       if (createdEvent) {
         setShowModal(false)
         history.push(`/details/${createdEvent.id}`)
@@ -69,27 +63,27 @@ function AddListing({showModal, setShowModal}) {
     }
   }
 
-  const updateFile = async (e) => {
-    const file = e.target.files[0];
-    // const file = imageInput.files[0]
+  // const updateFile = async (e) => {
+  //   const file = e.target.files[0];
+  //   // const file = imageInput.files[0]
 
-  // get secure url from our server
-  const { url } = await fetch("/s3Url").then(res => res.json())
-  console.log(url)
+  // // get secure url from our server
+  // const { url } = await fetch("/s3Url").then(res => res.json())
+  // console.log(url)
 
-  // post the image direclty to the s3 bucket
-  await fetch(url, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "multipart/form-data"
-    },
-    body: file
-  })
+  // // post the image direclty to the s3 bucket
+  // await fetch(url, {
+  //   method: "PUT",
+  //   headers: {
+  //     "Content-Type": "multipart/form-data"
+  //   },
+  //   body: file
+  // })
 
-  const imageUrl = url.split('?')[0]
-  setImage(imageUrl)
+  // const imageUrl = url.split('?')[0]
+  // setImage(imageUrl)
 
-  };
+  // };
 
     useEffect(() => {
      
@@ -118,7 +112,7 @@ function AddListing({showModal, setShowModal}) {
         <h2 className={styles.h2}>Create Event</h2>
       <div className={styles.container3}>
         <label>Upload your event's image</label>
-      <input type='file' onChange={updateFile}></input>
+      {/* <input type='file' accept="image/png, image/jpeg" onChange={updateFile}></input> */}
       <input
       className={styles.input}
       type='hidden'

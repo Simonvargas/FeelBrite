@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Event, User, Bookmark, Registration, Category } = require('../../db/models');
-const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
+
 const router = express.Router();
 
 
